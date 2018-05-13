@@ -27,7 +27,7 @@ UML类图使用一条直线箭头连接，箭头所指的方向为被关联的�
 ![image](https://github.com/IKNOWJLY/Interview/blob/master/contents/img/Association.png)
 
 ##### 组合关系
->组合是次于前两者的关系，它表示的是整体和部分的关系。比如人和手的关系，当人不在了，手也就没了。
+>组合是次于继承(泛化)、实现的关系，它表示的是整体和部分的关系。比如人和手的关系，当人不在了，手也就没了。
 UML类图使用用实心菱形+实线+箭头图示表示，菱形的一边指的的拥有者ClassA，实线所在的一边为被拥有者ClassB。<br>
 ![image](https://github.com/IKNOWJLY/Interview/blob/master/contents/img/Composition.png)
 
