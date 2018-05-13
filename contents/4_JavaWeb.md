@@ -57,12 +57,12 @@
 
 ---
 
-### SSH相关
+### SSM相关
 ##### ？1、Hibernate/Ibatis/MyBatis之间的区别
 
 ##### ？2、什么是OR Mapping
 
-##### %3、hibernate的缓存机制、一级和二级缓存
+##### %3、MyBatis的缓存机制、一级和二级缓存
 
 ##### ！4、使用Spring的好处是什么，Spring的核心理念
 
