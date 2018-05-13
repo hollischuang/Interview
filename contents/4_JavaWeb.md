@@ -28,7 +28,7 @@
 - 解决方案：  
 ```bash
 - 使用MVC模式规避JSP与Servlet各自的短板，提高代码的可读性和可维护性；  
-- Servlet只负责业务逻辑而不会通过out.append()动态生成HTML代码；  
+- Servlet只负责业务逻辑而不会通过 out.append()动态生成HTML代码；  
 - JSP中也不会充斥着大量的业务代码。  
 ```  
 
@@ -39,13 +39,12 @@ Java Servlet 是运行在 Web 服务器或应用服务器上的程序。
 ```  
 
 - Servlet在架构中的位置：  
-![servlet架构图](https://img.w3cschool.cn/attachments/day_160820/201608201310026613.jpg)
-
 ```bash  
 Web 浏览器或其他 HTTP 客户端的请求
 中间层（servlet）  
 HTTP 服务器上的数据库或应用程序
 ```   
+![servlet架构图](https://img.w3cschool.cn/attachments/day_160820/201608201310026613.jpg)
 
 - Servlet作用：
 ```bash  
@@ -85,12 +84,12 @@ Servlet 生命周期可被定义为从创建直到毁灭的整个过程
 ```  
 
 **2.2) 一个典型的 Servlet 生命周期方案**  
-![架构图](https://img.w3cschool.cn/attachments/day_160820/201608201303222781.jpg)
 ```bash  
 - 第一个到达服务器的 HTTP 请求被委派到 Servlet 容器  
 - Servlet 容器在调用 service() 方法之前加载 Servlet  
 - 然后 Servlet 容器处理由多个线程产生的多个请求，每个线程执行一个单一的 Servlet 实例的 service() 方法  
 ```  
+![架构图](https://img.w3cschool.cn/attachments/day_160820/201608201303222781.jpg)  
 
 ##### 参考来源：  
 a) [Servlet 生命周期(w3cSchool)](https://www.w3cschool.cn/servlet/servlet-life-cycle.html)  
