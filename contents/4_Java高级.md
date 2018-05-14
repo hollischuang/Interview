@@ -35,7 +35,7 @@
 
 ## ！7、什么是线程安全？
 
-##！8、synchronized 和 lock的区别
+## ！8、synchronized 和 lock的区别
 
 ## ！9、当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?
 
