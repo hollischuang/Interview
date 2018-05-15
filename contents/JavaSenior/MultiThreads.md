@@ -116,6 +116,6 @@ notify则文明得多他只是选择一个wait状态线程进行通知，并使�
 1. [java中的锁](http://www.importnew.com/19472.html)
 
 
->Contributes: xxx
+>Contributes: hueizhe
 >
 >Reviewers : Hollis, Kevin Lee
