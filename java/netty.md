@@ -23,7 +23,7 @@
 <tr> <td>安全性</td>      <td> 完整的 SSL/TLS 以及 StartTLS 支持<br>
                                可用于受限环境下，如 Applet 和 OSGI</td> </tr>
 <tr> <td>社区驱动</td>      <td> 发布快速而且频繁</td> </tr>
-
+</table>
 ## 2.业务中，netty的使用场景
 有了Netty，你可以实现自己的HTTP服务器，FTP服务器，UDP服务器，RPC服务器，WebSocket服务器，Redis的Proxy服务器，MySQL的Proxy服务器等等。
 
