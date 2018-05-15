@@ -24,7 +24,9 @@
                                可用于受限环境下，如 Applet 和 OSGI</td> </tr>
 <tr> <td>社区驱动</td>      <td> 发布快速而且频繁</td> </tr>
 </table>
+
 ## 2.业务中，netty的使用场景
+
 有了Netty，你可以实现自己的HTTP服务器，FTP服务器，UDP服务器，RPC服务器，WebSocket服务器，Redis的Proxy服务器，MySQL的Proxy服务器等等。
 
 HTTP服务器之所以称为HTTP服务器，是因为编码解码协议是HTTP协议，如果协议是Redis协议，那它就成了Redis服务器，如果协议是WebSocket，那它就成了WebSocket服务器，等等。
