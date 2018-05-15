@@ -132,7 +132,110 @@ Step6：栈帧中obj2不再指向Java堆，GcObject实例2的引用计数减1，
 
 
 #### %6、Java中的内存溢出是什么，和内存泄露有什么关系
+Java内存泄漏就是程序中动态分配内存给一些临时对象，但是对象不会被GC所回收，它始终占用内存。即被分配的对象可达但已无用,
+Java内存溢出就是你要求分配的内存超出了系统能给你的，系统不能满足需求，于是产生溢出。
+从定义上可以看出内存泄露是内存溢出的一种诱因，不是唯一因素。
 
+一、内存泄漏的几种场景
+1、长生命周期的对象持有短生命周期对象的引用
+
+    这是内存泄露最常见的场景，也是代码设计中经常出现的问题。
+    例如：在全局静态map中缓存局部变量，且没有清空操作，随着时间的推移，这个map会越来越大，造成内存泄露。
+
+2、修改hashset中对象的参数值，且参数是计算哈希值的字段
+ 
+     当一个对象被存储进HashSet集合中以后，就不能修改这个对象中的那些参与计算哈希值的字段，否则对象修改后的哈希值与最初存储进HashSet集合中时的哈希值就不同了，在这种情况下，即使在contains方法使用该对象的当前引用作为参数去HashSet集合中检索对象，也将返回找不到对象的结果，这也会导致无法从HashSet集合中删除当前对象，造成内存泄露。
+ 
+3、机器的连接数和关闭时间设置
+ 
+    长时间开启非常耗费资源的连接，也会造成内存泄露。
+
+二、内存溢出的几种场景
+
+1、堆内存溢出（outOfMemoryError：java heap space）
+       在jvm规范中，堆中的内存是用来生成对象实例和数组的。
+       如果细分，堆内存还可以分为年轻代和年老代，年轻代包括一个eden区和两个survivor区。
+       当生成新对象时，内存的申请过程如下：
+          a、jvm先尝试在eden区分配新建对象所需的内存；
+          b、如果内存大小足够，申请结束，否则下一步；
+          c、jvm启动youngGC，试图将eden区中不活跃的对象释放掉，释放后若Eden空间仍然不足以放入新对象，则试图将部分Eden中活跃对象放入Survivor区；
+          d、Survivor区被用来作为Eden及old的中间交换区域，当OLD区空间足够时，Survivor区的对象会被移到Old区，否则会被保留在Survivor区；
+          e、 当OLD区空间不够时，JVM会在OLD区进行full GC；
+          f、full GC后，若Survivor及OLD区仍然无法存放从Eden复制过来的部分对象，导致JVM无法在Eden区为新对象创建内存区域，则出现”out of memory错误”：
+                                   outOfMemoryError：java heap space
+ 
+代码举例：
+~~~java
+/** 
+ * 堆内存溢出 
+ * 
+ * jvm参数：-Xms5m -Xmx5m -Xmn2m -XX:NewSize=1m 
+ * 
+ */  
+public class MemoryLeak {  
+     
+    private String[] s = new String[1000];  
+   
+    public static void main(String[] args) throws InterruptedException {  
+        Map<String,Object> m =new HashMap<String,Object>();  
+        int i =0;  
+        int j=10000;  
+        while(true){  
+            for(;i<j;i++){  
+                MemoryLeak memoryLeak = new MemoryLeak();  
+                m.put(String.valueOf(i), memoryLeak);  
+            }  
+        }  
+    }  
+}  
+~~~
+2、方法区内存溢出（outOfMemoryError：permgem space）
+       在jvm规范中，方法区主要存放的是类信息、常量、静态变量等。
+       所以如果程序加载的类过多，或者使用反射、gclib等这种动态代理生成类的技术，就可能导致该区发生内存溢出，一般该区发生内存溢出时的错误信息为：
+             outOfMemoryError：permgem space
+ 
+举例：
+
+    jvm参数：-XX:PermSize=2m -XX:MaxPermSize=2m  
+    将方法区的大小设置很低即可，在启动加载类库时就会出现内存不足的情况  
+
+ 
+ 
+3、线程栈溢出（java.lang.StackOverflowError）
+       线程栈时线程独有的一块内存结构，所以线程栈发生问题必定是某个线程运行时产生的错误。
+       一般线程栈溢出是由于递归太深或方法调用层级过多导致的。
+       发生栈溢出的错误信息为：
+              java.lang.StackOverflowError
+ 
+代码举例：
+~~~java
+/** 
+ * 线程操作栈溢出 
+ * 
+ * 参数：-Xms5m -Xmx5m -Xmn2m -XX:NewSize=1m -Xss64k 
+ * 
+ */  
+public class StackOverflowTest {  
+     
+    public static void main(String[] args) {  
+        int i =0;  
+        digui(i);  
+    }  
+     
+    private static void digui(int i){  
+        System.out.println(i++);  
+        String[] s = new String[50];  
+        digui(i);  
+    }  
+  
+}  
+~~~
+
+最后说一些建议：
+* 使用字符串处理，避免使用String，应大量使用StringBuffer，每一个String对象都得独立占用内存一块区域
+* 尽量少用静态变量，因为静态变量存放在永久代（方法区），永久代基本不参与垃圾回收
+* 避免在循环中创建对象
+* 开启大型文件或从数据库一次拿了太多的数据很容易造成内存溢出，所以在这些地方要大概计算一下数据量的最大值是多少，并且设定所需最小及最大的内存空间值。 
 
 #### ！7、Java的类加载机制，什么是双亲委派
 
