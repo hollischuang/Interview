@@ -44,13 +44,14 @@
       * T实现接口I。
       * T是C，或继承自C
 #### ？4、JVM启动参数，-Xms和 -Xmx
-<table>
 
-<tr><td>参数名称</td>	<td>含义</td>	<td>默认值</td>                   <td>说明</td>	</tr> 
-<tr><td>-Xms</td>	<td>初始堆大小</td>	<td>物理内存的1/64(<1GB)</td>	<td>默认(MinHeapFreeRatio参数可以调整)空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制.</td>	</tr> 
-<tr><td>-Xmx</td>	<td>最大堆大小</td>	<td>物理内存的1/4(<1GB)</td>	<td>默认(MaxHeapFreeRatio参数可以调整)空余堆内存大于70%时，JVM会减少堆直到 -Xms的最小限制</td>	</tr> 
-</table>
-#### %5、代理机制的实现
+ |参数名称 |含义       |默认值               |说明 | 
+ | ------- | --------- | ------------------- | ---------------------------------------------------- | 
+ |-Xms     |初始堆大小 |物理内存的1/64(<1GB) |默认(MinHeapFreeRatio参数可以调整)空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制. |
+ |-Xmx     |最大堆大小 |物理内存的1/4(<1GB)  |默认(MaxHeapFreeRatio参数可以调整)空余堆内存大于70%时，JVM会减少堆直到 -Xms的最小限制 |
+ 
+
+####  %5、代理机制的实现
 
 JAVA 代理实现
 代理的实现分动态代理和静态代理，
@@ -60,7 +61,6 @@ JAVA 代理实现
 * JDK自带实现方法
 JDK实现代理生成，是用类 java.lang.reflect.Proxy, 实现方式如下
 
-EX:
 ~~~
 public class JDKProxy {
       public static Object getPoxyObject(final Object c) {
