@@ -3,13 +3,165 @@
 ---
 
 #### ！1、JSP和Servlet的区别，Servelt的概念。
+##### 回答：
+**1.1) JSP和Servlet的区别**  
+- 二者联系：  
+```bash
+- JSP在本质上就是SERVLET。  
+- JSP会被Web容器转译为Servlet的“.java”源文件，编译为“.class”文件，然后加载容器之中，所以最后提供服务的还是Servlet实例（Instance）。  
+```  
+  
+- 主要区别：  
+```bash
+- Servlet在Java代码中通过HttpServletResponse对象动态输出HTML内容
+- JSP在静态HTML内容中嵌入Java代码，Java代码被动态执行后生成HTML内容
+```
+
+- 各自的优缺点：  
+```bash  
+- Servlet能够很好地组织业务逻辑代码，但是在Java源文件中通过字符串拼接的方式生成动态HTML内容会导致代码维护困难、可读性差  
+- JSP虽然规避了Servlet在生成HTML内容方面的劣势，但是在HTML中混入大量、复杂的业务逻辑同样也是不可取的
+```  
+
+- 解决方案：  
+```bash
+- 使用MVC模式规避JSP与Servlet各自的短板，提高代码的可读性和可维护性；  
+- Servlet只负责业务逻辑而不会通过 out.append()动态生成HTML代码；  
+- JSP中也不会充斥着大量的业务代码。  
+```  
+
+**1.2) Servlet的概念**  
+- Servlet是什么？  
+```bash  
+Java Servlet 是运行在 Web 服务器或应用服务器上的程序。
+```  
+
+- Servlet在架构中的位置：  
+```bash  
+Web 浏览器或其他 HTTP 客户端的请求
+中间层（servlet）  
+HTTP 服务器上的数据库或应用程序
+```   
+![servlet架构图](https://img.w3cschool.cn/attachments/day_160820/201608201310026613.jpg)
+
+- Servlet作用：
+```bash  
+- 读取客户端请求：
+-- 显式数据：包括网页上的HTML 表单，applet 或自定义的HTTP 客户端程序的表单。
+-- 隐式数据：包括 cookies、媒体类型和浏览器能理解的压缩格式等等。
+
+- 处理数据并生成结果，这个过程可能需要：
+-- 访问数据库
+-- 执行 RMI 或 CORBA 调用
+-- 调用 Web 服务
+-- 直接计算
+
+- 发送数据到客户端（浏览器）：
+-- 显式文档：格式包括文本文件（HTML 或 XML）、二进制文件（GIF 图像）、Excel 等。
+-- 隐式响应：包括告诉浏览器或其他客户端被返回的文档类型（例如 HTML），设置 cookies 和缓存参数，以及其他类似的任务。
+```  
+
+
+##### 参考来源：  
+a) [Jsp和Servlet有什么区别？](https://www.zhihu.com/question/37962386/answer/87758781)  
+b) [jsp与servlet有什么区别？](https://blog.csdn.net/yaohaibing576082210/article/details/5855444)  
+c) [Servlet、Filter、Listener深入理解](https://blog.csdn.net/sunxianghuang/article/details/52107376)  
+d) [Servlet 简介(w3cschool)](https://www.w3cschool.cn/servlet/servlet-intro.html)  
+e) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsinghua.edu.cn/booksCenter/book_04495001.html)  
+
+<br/>  
 
 
 #### ！2、Servlet的生命周期
+##### 回答：
+**2.1) Servlet 生命周期描述**  
+```bash  
+Servlet 生命周期可被定义为从创建直到毁灭的整个过程  
+- Servlet 通过调用 init () 方法进行初始化  
+- Servlet 调用 service() 方法来处理客户端的请求  
+- Servlet 通过调用 destroy() 方法终止（结束）  
+- Servlet 最终由 JVM 的垃圾回收器进行垃圾回收  
+```  
+
+**2.2) 一个典型的 Servlet 生命周期方案**  
+```bash  
+- 第一个到达服务器的 HTTP 请求被委派到 Servlet 容器  
+- Servlet 容器在调用 service() 方法之前加载 Servlet  
+- 然后 Servlet 容器处理由多个线程产生的多个请求，每个线程执行一个单一的 Servlet 实例的 service() 方法  
+```  
+![架构图](https://img.w3cschool.cn/attachments/day_160820/201608201303222781.jpg)  
+
+##### 参考来源：  
+a) [Servlet 生命周期(w3cSchool)](https://www.w3cschool.cn/servlet/servlet-life-cycle.html)  
+
+<br/>
+
 
 
 #### ！3、Servlet中的session工作原理 ，以及设置过期时间的方式
+##### 回答：
+**3.1) Session工作原理**  
+- 一句话概述
+```bash  
+每个HttpSession都有一个唯一的Session ID，
+当浏览器访问应用程序时，会将Cookie中存放的Session ID一并发送给应用程序，
+Web容器会根据Session ID找出对应的HttpSession对象，这样就能在不同请求中获取相同的数据。
+```  
 
+- 为什么使用Session    
+```bash  
+Web应用程序的请求与响应基于Http，为无状态的通信协议，每次请求对服务器来说都是新请求。
+``` 
+
+- HttpSession对象：
+```bash  
+当用户使用浏览器访问服务器的资源时，通过运行HttpServletRequest对象的getSession()方法，Web容器就会获取已经存在的HttpSession实例或创建一个新HttpSession实例。
+由于Web容器本身是执行于JVM中的一个Java程序，HttpSession是Web容器中的一个Java对象。
+```  
+
+- Session ID：
+```bash  
+每个HttpSession对象都有一个特殊的Session ID作为标识，可以通过执行HttpSession的getId()方法取得这个Session ID。Session ID 默认使用Cookie存放在浏览器中。在Tomcat中，Cookie的名称是JSESSIONID（在PHP中为PHPSESSID）。
+```  
+<br/>
+
+**3.2) Session设置超时的方式**  
+- 方式一：
+```bash  
+在Servlet中执行HttpSession的setMaxInactiveInterval()方法，参数单位是“秒”；
+```  
+
+- 方式二：
+```bash  
+在程序中的web.xml里设置HttpSession默认失效时间，单位是“分钟”
+<session-config>
+  <session-timeout>30</session-timeout>
+</session-config>
+```  
+
+- 方式三：
+```bash  
+在Tomcat的/conf/web.xml中session-config，单位也是分钟
+<session-config>
+     <session-timeout>30</session-timeout>
+</session-config>
+```  
+
+- 注意：  
+```bash  
+默认关闭浏览器马上失效的是浏览器上的Cookie，不是HttpSession。
+存在Cookie中的Session ID随着Cookie失效而丢失，
+所以再次打开浏览器向服务器发送请求时，HttpSession尝试getSession()，Web容器会产生新的HttpSession实例。
+要让HttpSession立即失效必须调用invalidate()方法，
+否则HttpSession实例要等到失效时间过后才会被容器销毁回收。
+```  
+
+
+##### 参考来源：  
+a) [Servlet中不可不知的Session技术](https://blog.csdn.net/qq_15096707/article/details/71081313#session%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)  
+b) [Java Web开发Session超时设置](http://www.cnblogs.com/sharpest/p/6185234.html)  
+c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsinghua.edu.cn/booksCenter/book_04495001.html)  
+<br/>
 
 #### ！4、Servlet中，filter的应用场景有哪些？
 
