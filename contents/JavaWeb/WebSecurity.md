@@ -55,8 +55,9 @@ CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也�
  
   在 HTTP 头中自定义属性并验证
 #### 参考资料
-[xss攻击](http://www.cnblogs.com/bangerlee/archive/2013/04/06/3002142.html)
-[CSRF 攻击的应对之道](https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/index.html)
+1. [xss攻击](http://www.cnblogs.com/bangerlee/archive/2013/04/06/3002142.html)
+
+2. [CSRF 攻击的应对之道](https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/index.html)
 >Contributes: hueizhe
 >
 >Reviewers : Hollis, Kevin Lee
