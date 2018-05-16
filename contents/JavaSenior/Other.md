@@ -56,12 +56,12 @@
 JAVA 代理实现
 代理的实现分动态代理和静态代理，
 * 静态代理的实现是对已经生成了的JAVA类进行封装。
-* 动态代理则是在运行时生成了相关代理累，在JAVA中生成动态代理一般有两种方式。
+* 动态代理则是在运行时生成了相关代理类，在JAVA中生成动态代理一般有两种方式:
+##### 1. JDK自带实现方法
 
-* JDK自带实现方法
-JDK实现代理生成，是用类 java.lang.reflect.Proxy, 实现方式如下
+  JDK实现代理生成，是用类 java.lang.reflect.Proxy, 实现方式如下:
 
-~~~
+~~~java
 public class JDKProxy {
       public static Object getPoxyObject(final Object c) {
             // JDK实现动态代理，但JDK实现必须需要接口
@@ -81,7 +81,7 @@ public class JDKProxy {
 }
 ~~~
 测试代理类方法
-~~~
+~~~java
 public class TestForPoxy {
       public static void main(String[] args) {
             ServiceTest service = new ServiceTestImpl();
@@ -94,27 +94,20 @@ public class TestForPoxy {
       }
 }
 ~~~
-1， Proxy实现代理的目标类必须有实现接口
+- Proxy实现代理的目标类必须有实现接口
 
-2， 生成出来的代理类为接口实现类，和目标类不能进行转换，只能转为接口实现类进行调用
+- 生成出来的代理类为接口实现类，和目标类不能进行转换，只能转为接口实现类进行调用
 
-明显特点：通过此方法生成出来的类名叫做 $Proxy0
+- 明显特点：通过此方法生成出来的类名叫做 $Proxy0
 
-* 用CGLIB包实现
-CGLIB是一个开源项目，官方网址是：http://cglib.sourceforge.net/，可以去上面下载最新JAR包，
+#####  2. 用CGLIB包实现
 
-本项目用的是cglib-3.0.jar
+   - CGLIB实现方式是对代理的目标类进行继承
 
-本项目还加入了依赖JAR包asm-4.0.jar，asm-util-4.0.jar
-
-1  CGLIB实现方式是对代理的目标类进行继承
-
-2  生成出了的代理类可以没方法，生成出来的类可以直接转换成目标类或目标类实现接口的实现类，因JAVA向上转换
-
-明显特点：通过输出看出，看出生成出的代理类的parent类为代理的目标类
+   - 生成出了的代理类可以没方法，生成出来的类可以直接转换成目标类或目标类实现接口的实现类
 
 
-Spring  AOP的代理类机制
+#####  3. Spring AOP 的代理类机制
 
 Spring AOP中，当拦截对象实现了接口时，生成方式是用JDK的Proxy类。当没有实现任何接口时用的是GCLIB开源项目生成的拦截类的子类.
 
