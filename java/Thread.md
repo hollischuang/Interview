@@ -17,7 +17,7 @@ Java多线程实现方式主要有四种：
    start()方法是一个native方法，它将启动一个新线程，并执行run()方法。
    
    这种方式实现多线程很简单，通过自己的类直接extend Thread，并复写run()方法，就可以启动新线程并执行自己定义的run()方法。例如：
-~~~
+~~~j
 public class MyThread extends Thread {  
 　　public void run() {  
 　　 System.out.println("MyThread.run()");  
@@ -32,7 +32,7 @@ myThread2.start();
 
 #### 2、实现Runnable接口创建线程
    如果自己的类已经extends另一个类，就无法直接extends Thread，此时，可以实现一个Runnable接口，如下：
-   ~~~
+   ~~~java
    public class MyThread extends OtherClass implements Runnable {  
    　　public void run() {  
    　　 System.out.println("MyThread.run()");  
@@ -46,10 +46,10 @@ myThread2.start();
    thread.start();  
    ~~~
 ####   3、实现Callable接口通过FutureTask包装器来创建Thread线程
+~~~java
+public interface Callable<V>   {  V call() throws Exception;   } 
 ~~~
-public interface Callable<V>   {  V call（） throws Exception;   } 
-~~~
-~~~
+~~~java
 public class SomeCallable<V> extends OtherClass implements Callable<V> {
     @Override
     public V call() throws Exception {
@@ -83,7 +83,7 @@ ExecutorService、Callable、Future三个接口实际上都是属于Executor框�
 再结合线程池接口ExecutorService就可以实现传说中有返回结果的多线程了。
 
 下面提供了一个完整的有返回结果的多线程测试例子，在JDK1.5下验证过没问题可以直接使用。代码如下：
-~~~
+~~~java
 import java.util.concurrent.*;  
 import java.util.Date;  
 import java.util.List;  
