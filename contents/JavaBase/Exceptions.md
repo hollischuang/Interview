@@ -20,11 +20,27 @@ Exception类又分为运行时异常（Runtime Exception）和受检查的异常
 
 #### ！3、final、finally和finalize的区别
 
+- final：用来修饰类，方法，变量等，被final修饰的类不可以继承扩展，变量不可以修改，方法不可以重写。是保证平台安全的必要手段。
+- finally：表示代码块一定要被执行，一般用来关闭JDBC，保证Unlock锁等动作。但是也有例外，在finally执行之前强制退出进程，finally代码块不执行。
+- finalize：在垃圾回收器回收对象之前调用的方法以回收特定的垃圾，现在已经不推荐使用，因为finalize执行具有不确定性，有可能造成严重后果。
+
 
 #### %4、try-catch-finally中，如果在catch中return了，finally中的代码还会执行么，原理是什么？
 
-
 #### ！5、列举3个以上的RuntimeException
+
+```bash
+NullPointerException - 空指针引用异常
+ClassCastException - 类型强制转换异常。
+IllegalArgumentException - 传递非法参数异常。
+ArithmeticException - 算术运算异常
+ArrayStoreException - 向数组中存放与声明类型不兼容对象异常
+IndexOutOfBoundsException - 下标越界异常
+NegativeArraySizeException - 创建一个大小为负数的数组错误异常
+NumberFormatException - 数字格式异常
+SecurityException - 安全异常
+UnsupportedOperationException - 不支持的操作异常
+```
 
 
 #### ！6、Java中的异常处理机制的简单原理和应用
@@ -33,6 +49,6 @@ Exception类又分为运行时异常（Runtime Exception）和受检查的异常
 #### 参考资料
 
 
->Contributes: hueizhe
+>Contributes: hueizhe, zhangyue
 >
 >Reviewers : Hollis, Kevin Lee
