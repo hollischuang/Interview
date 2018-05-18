@@ -49,6 +49,6 @@ UnsupportedOperationException - 不支持的操作异常
 #### 参考资料
 
 
->Contributes: zhangyue
+>Contributes: hueizhe, zhangyue
 >
 >Reviewers : Hollis, Kevin Lee
