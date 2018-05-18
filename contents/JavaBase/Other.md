@@ -102,8 +102,18 @@ https://blog.csdn.net/fenglibing/article/details/8905007
 
 ##### ！9、正则表达式
 
-
 ##### ！10、int和Integer的区别，什么是自动装箱和自动拆箱
+
+- 区别：
+
+  ```bash
+  1. int是基本数据类型，Integer是int的包装类。
+  2. int的默认值是0，Integerde默认值是null。
+  3. int可以直接使用，Integer必须实例化才能使用。
+  4. int指向实际值，Integer指向的是Integer对象。
+  ```
+
+- 自动装箱和自动拆箱：装箱就是Java把基本数据类型转变为其包装类，编译器通过调用包装类型的valueOf()方法实现自动装箱，调用xxxValue()方法自动拆箱。
 
 
 ##### 参考资料
