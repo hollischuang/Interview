@@ -51,6 +51,15 @@ Netty除了可以处理TCP Socket之外，还可以处理UDP Socket。在消息�
 
 ## 5.netty 的线程模型
 
+线程模型指定了操作系统、编程语言、框架、或者应用程序的上下文中的线程管理的关键方面
+
+显而易见地，如何以及何时创建线程将对应用程序代码的执行产生显著的影响
+
+
+
+
+
+
 详见[netty-threading-model](http://www.infoq.com/cn/articles/netty-threading-model)
 ## 6.netty 的零拷贝
 根据 Wiki 对 Zero-copy 的定义:
