@@ -355,7 +355,70 @@ c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 
 
 #### ？5、JSP的动态include和静态include
+#####回答：  
+**5.1) 概念：**   
+* 5.1.1) 静态include：  
+```bash  
+- <%@include file=”xxx.jsp”%> 是JSP指示（或者指令）元素的一种，用于告知容器将其他JSP页面包括进来进行转译。
+- 使用include来包括其他页面内容时，会在转译时就决定转译后的Servlet内容，所以说是一种静态的包括方式。
+```  
 
+* 5.1.2) 动态include：    
+```bash  
+- <jsp:include page="xxx.jsp" /> 是JSP行为（或者动作）元素的一种，使用动态include将页面包含进来，当前页面会生成一个Servlet类，被include的页面也会独立生成一个Servlet类。
+- 当前页面转译而成的Servlet中，会取得RequestDispatcher对象，并执行include()方法，也就是请求时将动态include的页面转交给另一个Servlet，而后再回到自己的Servlet。
+```  
+
+**5.2) 区别**  
+* 5.2.1) 执行时间不同:    
+```bash  
+- 静态include是在转译阶段执行  
+- 动态include在请求处理阶段执行.  
+```  
+* 5.2.2) 引入内容不同:  
+```bash  
+- 静态include引入静态文本(html,jsp)，在JSP页面被转化成servlet之前和它融和到一起  
+- 动态include引入执行页面或servlet所生成的应答文本.  
+```  
+
+* 5.2.3) 属性区别：    
+```bash  
+- 静态include通过file属性指定被包含的文件，并且file属性不支持任何表达式；  
+- 动态include通过page属性指定被包含的文件，且page属性支持JSP表达式；  
+```  
+* 5.2.4) 编译区别：  
+```bash  
+- 静态include时，被包含的文件内容会原封不动的插入到包含页中，然后JSP编译器再将合成后的文件最终编译成一个Java文件，因此被导入页面甚至不需要是一个完整的页面；  
+- 动态inlcude时，当该标识被执行时，程序会将请求转发（不是请求重定向）到被包含的页面，并将执行结果输出到浏览器中，然后返回包含页继续执行后面的代码。因为服务器执行的是多个文件，所以JSP编译器会分别对这些文件进行编译；  
+```  
+* 5.2.5) 编译指令区别：  
+```bash  
+- 静态inlcude时被导入页面的编译指令会起作用；  
+- 而动态include时被导入页面的编译指令则失去作用，只是插入被导入页面的body内容。  
+```  
+* 5.2.6) 变量作用域区别：  
+```bash  
+- 静态include时，由于被包含的文件最终会生成一个文件，所以在被包含、包含文件中不能有重名的变量或方法；  
+- 动态include时，由于每个文件是单独编译的，所以在被包含文件和包含文件中重名的变量和方法是不相冲突的。  
+```  
+* 5.2.7) 传参区别：  
+```html  
+- 静态include会导致两个jsp合并成为同一个java文件，所以不存在传参问题  
+- 动态include对被包含的jsp文件进行了一次独立的访问，通过在<jsp:include>标签中嵌入子标签<jsp:param>的形式传递参数  
+<jsp:include page="xxx.jsp">  
+	<jsp:param name="参数名" value="参数值" />  
+</jsp:include>  
+在被包含的JSP页面中通request.getParameter("参数名")获取参数值  
+<p>获取的参数值在此显示：<%=request.getParameter("参数名")%></p>  
+```  
+
+<br/>
+##### 参考来源：  
+a) [JSP include](http://how2j.cn/k/jsp/jsp-include/576.html#step1660)  
+b) [JSP之静态include指令、动态Include指令](https://www.cnblogs.com/zhouhb/archive/2015/09/18/4818534.html)  
+c) [JSP中动态INCLUDE与静态INCLUDE的区别](http://meiowei.iteye.com/blog/413976)  
+d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsinghua.edu.cn/booksCenter/book_04495001.html)  
+<br/>
 
 #### %6、web.xml中常用配置及作用
 
