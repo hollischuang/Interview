@@ -86,7 +86,7 @@ e) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 
 ```bash  
 Servlet 生命周期可被定义为从创建直到毁灭的整个过程  
-- Servlet 通过调用 init () 方法进行初始化  
+- Servlet 通过调用 init() 方法进行初始化  
 - Servlet 调用 service() 方法来处理客户端的请求  
 - Servlet 通过调用 destroy() 方法终止（结束）  
 - Servlet 最终由 JVM 的垃圾回收器进行垃圾回收  
@@ -97,7 +97,7 @@ Servlet 生命周期可被定义为从创建直到毁灭的整个过程
 ```bash  
 - 第一个到达服务器的 HTTP 请求被委派到 Servlet 容器  
 - Servlet 容器在调用 service() 方法之前加载 Servlet  
-- 然后 Servlet 容器处理由多个线程产生的多个请求，每个线程执行一个单一的 Servlet 实例的 service() 方法  
+- 然后 Servlet 容器处理由多个线程产生的多个请求，每个线程执行一个单一的Servlet实例的 service() 方法  
 ```  
 ![架构图](https://img.w3cschool.cn/attachments/day_160820/201608201303222781.jpg)  
 
@@ -128,14 +128,14 @@ Web应用程序的请求与响应基于Http，为无状态的通信协议，每�
 - HttpSession对象：
 
 ```bash  
-当用户使用浏览器访问服务器的资源时，通过运行HttpServletRequest对象的getSession()方法，Web容器就会获取已经存在的HttpSession实例或创建一个新HttpSession实例。
+当用户使用浏览器访问服务器的资源时，通过运行HttpServletRequest对象的 getSession()方法，Web容器就会获取已经存在的HttpSession实例或创建一个新HttpSession实例。
 由于Web容器本身是执行于JVM中的一个Java程序，HttpSession是Web容器中的一个Java对象。
 ```  
 
 - Session ID：
 
 ```bash  
-每个HttpSession对象都有一个特殊的Session ID作为标识，可以通过执行HttpSession的getId()方法取得这个Session ID。Session ID 默认使用Cookie存放在浏览器中。在Tomcat中，Cookie的名称是JSESSIONID（在PHP中为PHPSESSID）。
+每个HttpSession对象都有一个特殊的Session ID作为标识，可以通过执行HttpSession的 getId()方法取得这个Session ID。Session ID 默认使用Cookie存放在浏览器中。在Tomcat中，Cookie的名称是JSESSIONID（在PHP中为PHPSESSID）。
 ```  
 <br/>
 
@@ -143,7 +143,7 @@ Web应用程序的请求与响应基于Http，为无状态的通信协议，每�
 - 方式一：
 
 ```bash  
-在Servlet中执行HttpSession的setMaxInactiveInterval()方法，参数单位是“秒”；
+在Servlet中执行HttpSession的 setMaxInactiveInterval()方法，参数单位是“秒”；
 ```  
 
 - 方式二：
@@ -169,8 +169,8 @@ Web应用程序的请求与响应基于Http，为无状态的通信协议，每�
 ```bash  
 默认关闭浏览器马上失效的是浏览器上的Cookie，不是HttpSession。
 存在Cookie中的Session ID随着Cookie失效而丢失，
-所以再次打开浏览器向服务器发送请求时，HttpSession尝试getSession()，Web容器会产生新的HttpSession实例。
-要让HttpSession立即失效必须调用invalidate()方法，
+所以再次打开浏览器向服务器发送请求时，HttpSession尝试 getSession()，Web容器会产生新的HttpSession实例。
+要让HttpSession立即失效必须调用 invalidate()方法，
 否则HttpSession实例要等到失效时间过后才会被容器销毁回收。
 ```  
 
@@ -265,16 +265,16 @@ cookie的值为用户名和md5加密后的密码。
 
 ```bash
 - Servlet/JSP要实现过滤器，必须实现Filter接口，并在web.xml中定义过滤器，让过滤器知道加载哪个过滤器类。
-- Filter接口有三个要实现的方法，init()、doFilter()与destroy()。
+- Filter接口有三个要实现的方法， init()、 doFilter() 与 destroy()。
 ```
 - 过滤器的执行过程：
 
 ```bash  
-- 当过滤器类被载入容器并实例化后，容器会运行init()方法并传入FilterConfig对象作为参数。
-- 当请求来到过滤器时，会调用doFilter()方法，doFilter()上除了ServletRequest和ServletResponse之外，还有一个FilterChain参数；
-- 如果调用了FilterChain的doFilter()方法，就会运行下一个过滤器，如果没有下一个过滤器，就调用请求目标Servlet的service()方法；
-- 在到达service()方法之后，流程会以堆栈顺序返回，所以在FilterChain的doFilter()运行完毕后，就可以针对service()方法做后续处理；
-- 如果因为某个条件（如用户没有通过验证）而不调用FilterChain的doFilter()，则请求就不会继续至目标Servlet，此时过滤器就起到了拦截请求的作用；
+- 当过滤器类被载入容器并实例化后，容器会运行 init()方法并传入FilterConfig对象作为参数。
+- 当请求来到过滤器时，会调用 doFilter()方法， doFilter()上除了ServletRequest和ServletResponse之外，还有一个FilterChain参数；
+- 如果调用了FilterChain的 doFilter()方法，就会运行下一个过滤器，如果没有下一个过滤器，就调用请求目标Servlet的 service()方法；
+- 在到达 service()方法之后，流程会以堆栈顺序返回，所以在FilterChain的 doFilter()运行完毕后，就可以针对 service()方法做后续处理；
+- 如果因为某个条件（如用户没有通过验证）而不调用FilterChain的 doFilter()，则请求就不会继续至目标Servlet，此时过滤器就起到了拦截请求的作用；
 ```  
 
 
@@ -321,7 +321,7 @@ Web容器调用init(FilterConfig)来初始化过滤器。
 -  (3) doFilter
 
 ```bash  
-doFilter方法类似于Servlet接口的service()方法。
+doFilter方法类似于Servlet接口的 service()方法。
 当客户端请求目标资源的时候，容器会筛选出符合 filter-mapping中url-pattern的filter，
 并按照声明filter-mapping的顺序依次调用这些 filter的doFilter方法。
 在这个链式调用过程中，
@@ -335,7 +335,7 @@ doFilter方法类似于Servlet接口的service()方法。
 - (4)销毁  
 
 ```bash  
-Web容器调用destroy()方法指示过滤器的生命周期结束。
+Web容器调用 destroy()方法指示过滤器的生命周期结束。
 在这个方法中，可以释放过滤器使用的资源。
 ```  
 
