@@ -351,11 +351,11 @@ Web容器调用 destroy()方法指示过滤器的生命周期结束。
 a) [Servlet、Filter、Listener深入理解](https://blog.csdn.net/sunxianghuang/article/details/52107376)  
 b) [Servlet 编写过滤器](https://www.w3cschool.cn/servlet/servlet-writing-filters.html)  
 c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsinghua.edu.cn/booksCenter/book_04495001.html)  
-<br/>
+<br/>  
 
 
-#### ？5、JSP的动态include和静态include
-#####回答：  
+#### ？5、JSP的动态include和静态include  
+##### 回答：  
 **5.1) 概念：**   
 * 5.1.1) 静态include：  
 ```bash  
@@ -412,7 +412,8 @@ c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 <p>获取的参数值在此显示：<%=request.getParameter("参数名")%></p>  
 ```  
 
-<br/>
+<br/>  
+
 ##### 参考来源：  
 a) [JSP include](http://how2j.cn/k/jsp/jsp-include/576.html#step1660)  
 b) [JSP之静态include指令、动态Include指令](https://www.cnblogs.com/zhouhb/archive/2015/09/18/4818534.html)  
