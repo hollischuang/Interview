@@ -5,25 +5,29 @@
 #### ！1、JSP和Servlet的区别，Servelt的概念。
 ##### 回答：
 **1.1) JSP和Servlet的区别**  
-- 二者联系：  
+- 二者联系： 
+ 
 ```bash
 - JSP在本质上就是SERVLET。  
 - JSP会被Web容器转译为Servlet的“.java”源文件，编译为“.class”文件，然后加载容器之中，所以最后提供服务的还是Servlet实例（Instance）。  
 ```  
   
 - 主要区别：  
+
 ```bash
 - Servlet在Java代码中通过HttpServletResponse对象动态输出HTML内容
 - JSP在静态HTML内容中嵌入Java代码，Java代码被动态执行后生成HTML内容
 ```
 
-- 各自的优缺点：  
+- 各自的优缺点： 
+ 
 ```bash  
 - Servlet能够很好地组织业务逻辑代码，但是在Java源文件中通过字符串拼接的方式生成动态HTML内容会导致代码维护困难、可读性差  
 - JSP虽然规避了Servlet在生成HTML内容方面的劣势，但是在HTML中混入大量、复杂的业务逻辑同样也是不可取的
 ```  
 
 - 解决方案：  
+
 ```bash
 - 使用MVC模式规避JSP与Servlet各自的短板，提高代码的可读性和可维护性；  
 - Servlet只负责业务逻辑而不会通过 out.append()动态生成HTML代码；  
@@ -32,19 +36,23 @@
 
 **1.2) Servlet的概念**  
 - Servlet是什么？  
+
 ```bash  
 Java Servlet 是运行在 Web 服务器或应用服务器上的程序。
 ```  
 
-- Servlet在架构中的位置：  
+- Servlet在架构中的位置： 
+ 
 ```bash  
 Web 浏览器或其他 HTTP 客户端的请求
 中间层（servlet）  
 HTTP 服务器上的数据库或应用程序
 ```   
+
 ![servlet架构图](https://img.w3cschool.cn/attachments/day_160820/201608201310026613.jpg)
 
 - Servlet作用：
+
 ```bash  
 - 读取客户端请求：
 -- 显式数据：包括网页上的HTML 表单，applet 或自定义的HTTP 客户端程序的表单。
@@ -75,6 +83,7 @@ e) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 #### ！2、Servlet的生命周期
 ##### 回答：
 **2.1) Servlet 生命周期描述**  
+
 ```bash  
 Servlet 生命周期可被定义为从创建直到毁灭的整个过程  
 - Servlet 通过调用 init () 方法进行初始化  
@@ -84,6 +93,7 @@ Servlet 生命周期可被定义为从创建直到毁灭的整个过程
 ```  
 
 **2.2) 一个典型的 Servlet 生命周期方案**  
+
 ```bash  
 - 第一个到达服务器的 HTTP 请求被委派到 Servlet 容器  
 - Servlet 容器在调用 service() 方法之前加载 Servlet  
@@ -102,24 +112,28 @@ a) [Servlet 生命周期(w3cSchool)](https://www.w3cschool.cn/servlet/servlet-li
 ##### 回答：
 **3.1) Session工作原理**  
 - 一句话概述
+
 ```bash  
 每个HttpSession都有一个唯一的Session ID，
 当浏览器访问应用程序时，会将Cookie中存放的Session ID一并发送给应用程序，
 Web容器会根据Session ID找出对应的HttpSession对象，这样就能在不同请求中获取相同的数据。
 ```  
 
-- 为什么使用Session    
+- 为什么使用Session   
+ 
 ```bash  
 Web应用程序的请求与响应基于Http，为无状态的通信协议，每次请求对服务器来说都是新请求。
 ``` 
 
 - HttpSession对象：
+
 ```bash  
 当用户使用浏览器访问服务器的资源时，通过运行HttpServletRequest对象的getSession()方法，Web容器就会获取已经存在的HttpSession实例或创建一个新HttpSession实例。
 由于Web容器本身是执行于JVM中的一个Java程序，HttpSession是Web容器中的一个Java对象。
 ```  
 
 - Session ID：
+
 ```bash  
 每个HttpSession对象都有一个特殊的Session ID作为标识，可以通过执行HttpSession的getId()方法取得这个Session ID。Session ID 默认使用Cookie存放在浏览器中。在Tomcat中，Cookie的名称是JSESSIONID（在PHP中为PHPSESSID）。
 ```  
@@ -127,27 +141,31 @@ Web应用程序的请求与响应基于Http，为无状态的通信协议，每�
 
 **3.2) Session设置超时的方式**  
 - 方式一：
+
 ```bash  
 在Servlet中执行HttpSession的setMaxInactiveInterval()方法，参数单位是“秒”；
 ```  
 
 - 方式二：
-```bash  
-在程序中的web.xml里设置HttpSession默认失效时间，单位是“分钟”
+
+```xml  
+<!-- 在程序中的web.xml里设置HttpSession默认失效时间，单位是“分钟” -->
 <session-config>
   <session-timeout>30</session-timeout>
 </session-config>
 ```  
 
 - 方式三：
-```bash  
-在Tomcat的/conf/web.xml中session-config，单位也是分钟
+
+```xml  
+<!-- 在Tomcat的/conf/web.xml中session-config，单位也是分钟 -->
 <session-config>
      <session-timeout>30</session-timeout>
 </session-config>
 ```  
 
-- 注意：  
+- 注意：
+  
 ```bash  
 默认关闭浏览器马上失效的是浏览器上的Cookie，不是HttpSession。
 存在Cookie中的Session ID随着Cookie失效而丢失，
@@ -167,15 +185,18 @@ c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 ##### 回答：  
 **4.1) Filter应用场景**  
 - 统一请求或响应的字符集   
+
 ```bash  
 如将编码统一为UTF-8
 ```  
 - 替换特殊字符  
+
 ```bash  
 如将请求参数中的一些HTML标签去掉
 ```  
 
 - 控制浏览器缓存页面中的静态资源
+
 ```bash  
 有些动态页面中引用了一些图片或css文件以修饰页面效果，
 这些图片和css文件经常是不变化的，
@@ -185,6 +206,7 @@ c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 ```  
 
 - 使用Filter实现URL级别的权限认证
+
 ```bash  
 在实际开发中我们经常把一些执行敏感操作的servlet映射到一些特殊目录中，
 并用filter把这些特殊目录保护起来，
@@ -193,6 +215,7 @@ c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 ```  
 
 - 实现用户自动登陆
+
 ```bash  
 首先，在用户登陆成功后，
 发送一个名称为user的cookie给客户端，
@@ -206,6 +229,7 @@ cookie的值为用户名和md5加密后的密码。
 
 <br/>
 **4.2) 更多细分过滤器**  
+
 ```bash  
 - 身份验证过滤器（Authentication Filters）。
 - 数据压缩过滤器（Data compression Filters）。
@@ -222,6 +246,7 @@ cookie的值为用户名和md5加密后的密码。
 **4.3) 过滤器的使用**  
 
 - 为什么使用过滤器：  
+
 ```bash  
 类似性能评测、用户验证、字符替换、编码设置这类需求，
 与应用程序的业务需求没有直接关系，
@@ -229,18 +254,21 @@ cookie的值为用户名和md5加密后的密码。
 或者随意修改设置而无需修改业务代码。
 ```  
 
-- 过滤器概念：  
+- 过滤器概念： 
+ 
 ```bash  
 过滤器是一个实现了 javax.servlet.Filter接口的Java类，
 作用于浏览器和Servlet中间，过滤请求与响应。
 ```  
 
 - 过滤器的定义：  
+
 ```bash
 - Servlet/JSP要实现过滤器，必须实现Filter接口，并在web.xml中定义过滤器，让过滤器知道加载哪个过滤器类。
 - Filter接口有三个要实现的方法，init()、doFilter()与destroy()。
 ```
 - 过滤器的执行过程：
+
 ```bash  
 - 当过滤器类被载入容器并实例化后，容器会运行init()方法并传入FilterConfig对象作为参数。
 - 当请求来到过滤器时，会调用doFilter()方法，doFilter()上除了ServletRequest和ServletResponse之外，还有一个FilterChain参数；
@@ -251,6 +279,7 @@ cookie的值为用户名和md5加密后的密码。
 
 
 - Filter接口：
+
 ```java  
 public interface Filter {  
     //用于完成Filter的初始化  
@@ -269,15 +298,18 @@ public interface Filter {
 ```
 
 <br/>
-**4.4) 过滤器的生命周期**  
+** 4.4) 过滤器的生命周期**  
+
 ```bash  
 web.xml 中声明的每个 filter 在每个虚拟机中仅有一个实例。
 ```  
-- (1) 加载和实例化  
+- (1) 加载和实例化 
+ 
 ```bash  
 Web容器启动时，即会根据 web.xml中声明的 filter顺序依次实例化这些 filter。
 ```  
 - (2) 初始化  
+
 ```bash  
 Web容器调用init(FilterConfig)来初始化过滤器。
 容器在调用该方法时，向过滤器传递 FilterConfig对象，FilterConfig的用法和 ServletConfig类似。
@@ -287,6 +319,7 @@ Web容器调用init(FilterConfig)来初始化过滤器。
 实例化和初始化的操作只会在容器启动时执行，而且只会执行一次。
 ```  
 -  (3) doFilter
+
 ```bash  
 doFilter方法类似于Servlet接口的service()方法。
 当客户端请求目标资源的时候，容器会筛选出符合 filter-mapping中url-pattern的filter，
@@ -300,6 +333,7 @@ doFilter方法类似于Servlet接口的service()方法。
 也就是说，过滤器的使用并不依赖于具体的协议。
 ```  
 - (4)销毁  
+
 ```bash  
 Web容器调用destroy()方法指示过滤器的生命周期结束。
 在这个方法中，可以释放过滤器使用的资源。
@@ -307,11 +341,13 @@ Web容器调用destroy()方法指示过滤器的生命周期结束。
 
 <br/>
 **4.5) 过滤器的运行原理**
+
 ![原理](https://img-blog.csdn.net/20160808181905251?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 ![流程](https://img-blog.csdn.net/20160808182011030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 <br/>
-##### 参考来源：  
+##### 参考来源：
+  
 a) [Servlet、Filter、Listener深入理解](https://blog.csdn.net/sunxianghuang/article/details/52107376)  
 b) [Servlet 编写过滤器](https://www.w3cschool.cn/servlet/servlet-writing-filters.html)  
 c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsinghua.edu.cn/booksCenter/book_04495001.html)  
