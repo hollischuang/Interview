@@ -431,21 +431,23 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
   <welcome-file>index1.jsp</welcome-file>
 </welcome-file-list>
 
-上面的例子指定了2个欢迎页面，显示时按顺序从第一个找起，
-如果第一个存在，就显示第一个，后面的不起作用。
-如果第一个不存在，就找第二个，以此类推。
+<!-- 上面的例子指定了2个欢迎页面，显示时按顺序从第一个找起 -->  
+<!-- 如果第一个存在，就显示第一个，后面的不起作用 -->  
+<!-- 如果第一个不存在，就找第二个，以此类推 -->  
 ```  
 
 - 6.1.2) 命名与定制URL  
 ```xml  
-我们可以为Servlet和JSP文件命名并定制URL,其中定制URL是依赖一命名的，命名必须在定制URL前  
-(1) 为Servlet命名：  
+<!-- 我们可以为Servlet和JSP文件命名并定制URL-->
+<!-- 其中定制URL是依赖一命名的，命名必须在定制URL前-->  
+
+<!-- (1) 为Servlet命名 -->  
 <servlet>  
   <servlet-name>servlet1</servlet-name>  
   <servlet-class>net.test.TestServlet</servlet-class>  
 </servlet>  
 
-(2) 为Servlet定制URL
+<!-- (2) 为Servlet定制URL -->  
 <servlet-mapping>  
   <servlet-name>servlet1</servlet-name>  
   <url-pattern>*.do</url-pattern>  
@@ -454,7 +456,9 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 
 - 6.1.3) 定制初始化参数：  
 ```xml  
-可以定制servlet、JSP、Context的初始化参数，然后可以再servlet、JSP、Context中获取这些参数值。
+
+<!-- 可以定制servlet、JSP、Context的初始化参数 --> 
+<!-- 然后可以再servlet、JSP、Context中获取这些参数值 -->  
 <servlet>
   <servlet-name>servlet1</servlet-name>
   <servlet-class>net.test.TestServlet</servlet-class>
@@ -467,13 +471,12 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
     <param-value>Tommy@163.com</param-value>
   </init-param>
 </servlet>
-经过上面的配置，
-在servlet中能够调用getServletConfig().getInitParameter("param1")获得参数名对应的值。
+<!-- 经过上面的配置，在servlet中能够调用getServletConfig().getInitParameter("param1")获得参数名对应的值-->
 ```  
 
 - 6.1.4) 指定错误处理页面  
 ```xml  
-可以通过“异常类型”或“错误码”来指定错误处理页面。
+<!-- 可以通过“异常类型”或“错误码”来指定错误处理页面 -->  
 <error-page>
   <error-code>404</error-code>
   <location>/error404.jsp</location>
@@ -487,7 +490,7 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 
 - 6.1.5) 设置过滤器：  
 ```xml  
-比如设置一个编码过滤器，过滤所有资源
+<!--  比如设置一个编码过滤器，过滤所有资源 -->  
 <filter>  
   <filter-name>XXXCharaSetFilter</filter-name>
   <filter-class>net.test.CharSetFilter</filter-class>
@@ -508,7 +511,7 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 
 - 6.1.7) 设置会话(Session)过期时间  
 ```xml  
-时间以分钟为单位，假如设置60分钟超时：
+<!-- 时间以分钟为单位，假如设置60分钟超时 -->
 <session-config>  
   <session-timeout>60</session-timeout>  
 </session-config>  
@@ -587,6 +590,7 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 ```  
 
 <br />  
+
 **6.3) 更多web.xml配置**  
 - 6.3.1) Web应用图标：  
 ```xml  
@@ -936,9 +940,11 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 ```  
 
 <br/>  
-##### 参考来源：  
+
+##### 参考来源:  
 a) [Java Web的web.xml文件作用及基本配置](https://www.cnblogs.com/EasonJim/p/6221952.html)  
 b) [史上最全web.xml配置文件元素详解](https://www.cnblogs.com/hafiz/p/5715523.html)  
+
 <br/>  
 
 #### %7、Servlet的线程安全问题  
@@ -988,7 +994,8 @@ Servlet是单实例多线程模型，多个线程共享一个Servlet实例，因
 ```  
 
 <br/>  
-##### 参考来源：  
+
+##### 参考来源:  
 a) [Servlet、Filter、Listener深入理解](https://blog.csdn.net/sunxianghuang/article/details/52107376)  
 <br/>  
 
