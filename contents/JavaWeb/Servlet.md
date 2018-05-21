@@ -301,18 +301,17 @@ public interface Filter {
 
 <br/>  
 
-** 4.4) 过滤器的生命周期**  
+**4.4) 过滤器的生命周期**  
 
 ```bash  
 web.xml 中声明的每个 filter 在每个虚拟机中仅有一个实例。
 ```  
-- (1) 加载和实例化 
- 
+
+- (1) 加载和实例化  
 ```bash  
 Web容器启动时，即会根据 web.xml中声明的 filter顺序依次实例化这些 filter。
 ```  
-- (2) 初始化  
-
+- (2) 初始化
 ```bash  
 Web容器调用init(FilterConfig)来初始化过滤器。
 容器在调用该方法时，向过滤器传递 FilterConfig对象，FilterConfig的用法和 ServletConfig类似。
@@ -956,7 +955,8 @@ b) [史上最全web.xml配置文件元素详解](https://www.cnblogs.com/hafiz/p
 #### %7、Servlet的线程安全问题  
 ##### 回答:  
 
-**7.1) Servlet多线程** 
+**7.1) 单实例多线程的Servlet模型**
+![多线程Servlet](https://img-blog.csdn.net/20160804112106404?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)  
 ```bash  
 Servlet规范中定义，默认情况下（Servlet不是在分布式的环境中部署），
 Servlet容器对声明的每一个Servlet，只创建一个实例。
@@ -968,6 +968,7 @@ Servlet容器对声明的每一个Servlet，只创建一个实例。
 
 **7.2) 线程安全的Servlet** 
 * 7.2.1) 变量的线程安全  
+
 ```bash  
 Servlet是单实例多线程模型，多个线程共享一个Servlet实例，因此对于实例变量的访问是非线程安全的。
 建议：在Servlet中尽可能的使用局部变量，应该只使用只读的实例变量和静态变量。
