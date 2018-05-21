@@ -227,7 +227,8 @@ cookie的值为用户名和md5加密后的密码。
 以实现程序完成自动登陆。
 ```  
 
-<br/>
+<br/>  
+
 **4.2) 更多细分过滤器**  
 
 ```bash  
@@ -242,7 +243,8 @@ cookie的值为用户名和md5加密后的密码。
 - XSL/T 过滤器（XSL/T Filters），转换 XML 内容。
 ```  
 
-<br/>
+<br/>  
+
 **4.3) 过滤器的使用**  
 
 - 为什么使用过滤器：  
@@ -297,7 +299,8 @@ public interface Filter {
 }  
 ```
 
-<br/>
+<br/>  
+
 ** 4.4) 过滤器的生命周期**  
 
 ```bash  
@@ -339,13 +342,15 @@ Web容器调用 destroy()方法指示过滤器的生命周期结束。
 在这个方法中，可以释放过滤器使用的资源。
 ```  
 
-<br/>
+<br/>  
+
 **4.5) 过滤器的运行原理**
 
 ![原理](https://img-blog.csdn.net/20160808181905251?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 ![流程](https://img-blog.csdn.net/20160808182011030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
-<br/>
+<br/>  
+
 ##### 参考来源：
   
 a) [Servlet、Filter、Listener深入理解](https://blog.csdn.net/sunxianghuang/article/details/52107376)  
@@ -518,6 +523,7 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 ```  
 
 <br />  
+
 **6.2) web.xml标签及说明**  
 ```xml  
 <web-app>
