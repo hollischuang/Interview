@@ -386,7 +386,7 @@ c) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 * 5.1.2) 动态include：    
 ```bash  
 - <jsp:include page="xxx.jsp" /> 是JSP行为（或者动作）元素的一种，使用动态include将页面包含进来，当前页面会生成一个Servlet类，被include的页面也会独立生成一个Servlet类。
-- 当前页面转译而成的Servlet中，会取得RequestDispatcher对象，并执行include()方法，也就是请求时将动态include的页面转交给另一个Servlet，而后再回到自己的Servlet。
+- 当前页面转译而成的Servlet中，会取得RequestDispatcher对象，并执行 include()方法，也就是请求时将动态include的页面转交给另一个Servlet，而后再回到自己的Servlet。
 ```  
 
 <br/>
@@ -987,7 +987,7 @@ Servlet容器对声明的每一个Servlet，只创建一个实例。
 如果有多个客户端请求同时访问这个Servlet，Servlet容器如何处理多个请求呢？
 答案是采用多线程，Servlet容器维护一个线程池来服务请求。
 当容器接收到一个访问Servlet的请求，调度者线程从线程池中选取一个工作线程，
-将请求传递给该线程，然后由这个线程执行Servlet的service()方法。
+将请求传递给该线程，然后由这个线程执行Servlet的 service()方法。
 ```  
 
 <br/>
