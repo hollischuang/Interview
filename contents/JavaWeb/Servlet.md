@@ -422,14 +422,578 @@ d) [《JSP&Servlet学习笔记(第2版)》作者林信良](http://www.tup.tsingh
 <br/>
 
 #### %6、web.xml中常用配置及作用
+##### 回答  
+**6.1) 常用web.xml配置场景**  
+* 6.1.1) 指定欢迎页面：  
+```xml  
+<welcome-file-list>
+  <welcome-file>index.jsp</welcome-file>
+  <welcome-file>index1.jsp</welcome-file>
+</welcome-file-list>
 
+上面的例子指定了2个欢迎页面，显示时按顺序从第一个找起，
+如果第一个存在，就显示第一个，后面的不起作用。
+如果第一个不存在，就找第二个，以此类推。
+```  
 
-#### %7、Servlet的线程安全问题
+- 6.1.2) 命名与定制URL  
+```xml  
+我们可以为Servlet和JSP文件命名并定制URL,其中定制URL是依赖一命名的，命名必须在定制URL前  
+(1) 为Servlet命名：  
+<servlet>  
+  <servlet-name>servlet1</servlet-name>  
+  <servlet-class>net.test.TestServlet</servlet-class>  
+</servlet>  
 
+(2) 为Servlet定制URL
+<servlet-mapping>  
+  <servlet-name>servlet1</servlet-name>  
+  <url-pattern>*.do</url-pattern>  
+</servlet-mapping>  
+```  
 
-#### 参考资料
+- 6.1.3) 定制初始化参数：  
+```xml  
+可以定制servlet、JSP、Context的初始化参数，然后可以再servlet、JSP、Context中获取这些参数值。
+<servlet>
+  <servlet-name>servlet1</servlet-name>
+  <servlet-class>net.test.TestServlet</servlet-class>
+  <init-param>
+    <param-name>userName</param-name>
+    <param-value>Tommy</param-value>
+  </init-param>
+  <init-param>
+    <param-name>E-mail</param-name>
+    <param-value>Tommy@163.com</param-value>
+  </init-param>
+</servlet>
+经过上面的配置，
+在servlet中能够调用getServletConfig().getInitParameter("param1")获得参数名对应的值。
+```  
 
+- 6.1.4) 指定错误处理页面  
+```xml  
+可以通过“异常类型”或“错误码”来指定错误处理页面。
+<error-page>
+  <error-code>404</error-code>
+  <location>/error404.jsp</location>
+</error-page>
 
->Contributes: xxx
+<error-page>
+  <exception-type>java.lang.Exception<exception-type>
+  <location>/exception.jsp<location>
+</error-page>
+```  
+
+- 6.1.5) 设置过滤器：  
+```xml  
+比如设置一个编码过滤器，过滤所有资源
+<filter>  
+  <filter-name>XXXCharaSetFilter</filter-name>
+  <filter-class>net.test.CharSetFilter</filter-class>
+</filter>
+
+<filter-mapping>
+  <filter-name>XXXCharaSetFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>
+```  
+
+- 6.1.6) 设置监听器：  
+```xml  
+<listener>
+  <listener-class>net.test.XXXLisenet</listener-class>
+</listener>
+```  
+
+- 6.1.7) 设置会话(Session)过期时间  
+```xml  
+时间以分钟为单位，假如设置60分钟超时：
+<session-config>  
+  <session-timeout>60</session-timeout>  
+</session-config>  
+```  
+
+<br />  
+**6.2) web.xml标签及说明**  
+```xml  
+<web-app>
+
+	<!--定义了WEB应用的名字 -->
+	<display-name></display-name>
+
+	<!--声明WEB应用的描述信息 -->
+	<description></description>
+
+	<!--context-param元素声明应用范围内的初始化参数 -->
+	<context-param></context-param>
+
+	<!--过滤器元素将一个名字与一个实现javax.servlet.Filter接口的类相关联 -->
+	<filter></filter>
+
+	<!--一旦命名了一个过滤器，就要利用filter-mapping元素把它与一个或多个servlet或JSP页面相关联 -->
+	<filter-mapping></filter-mapping>
+
+	<!--servlet API的版本2.3增加了对事件监听程序的支持，事件监听程序在建立、修改和删除会话或servlet环境时得到通知。 Listener元素指出事件监听程序类 -->
+	<listener></listener>
+
+	<!--在向servlet或JSP页面制定初始化参数或定制URL时，必须首先命名servlet或JSP页面。 Servlet元素就是用来完成此项任务的 -->
+	<servlet></servlet>
+
+	<!--服务器一般为servlet提供一个缺省的URL：http://host/webAppPrefix/servlet/ServletName。 
+		但是，常常会更改这个URL，以便servlet可以访问初始化参数或更容易地处理相对URL。 在更改缺省URL时，使用servlet-mapping元素 -->
+	<servlet-mapping></servlet-mapping>
+
+	<!--如果某个会话在一定时间内未被访问，服务器可以抛弃它以节省内存。可通过使用HttpSession的 setMaxInactiveInterval方法明确设置单个会话对象的超时值，或者可利用session-config元素制定缺省超时值 -->
+	<session-config></session-config>
+
+	<!--如果Web应用具有想到特殊的文件，希望能保证给他们分配特定的MIME类型，则mime-mapping元素提供这种保证 -->
+	<mime-mapping></mime-mapping>
+
+	<!--指示服务器在收到引用一个目录名而不是文件名的URL时，使用哪个文件 -->
+	<welcome-file-list></welcome-file-list>
+
+	<!--在返回特定HTTP状态代码时，或者特定类型的异常被抛出时，能够制定将要显示的页面 -->
+	<error-page></error-page>
+
+	<!--对标记库描述符文件（Tag Libraryu Descriptor file）指定别名。此功能使你能够更改TLD文件的位置， 而不用编辑使用这些文件的JSP页面 -->
+	<taglib></taglib>
+
+	<!--声明与资源相关的一个管理对象 -->
+	<resource-env-ref></resource-env-ref>
+
+	<!--声明一个资源工厂使用的外部资源 -->
+	<resource-ref></resource-ref>
+
+	<!--制定应该保护的URL。它与login-config元素联合使用 -->
+	<security-constraint></security-constraint>
+
+	<!--指定服务器应该怎样给试图访问受保护页面的用户授权。它与sercurity-constraint元素联合使用 -->
+	<login-config></login-config>
+
+	<!--给出安全角色的一个列表，这些角色将出现在servlet元素内的security-role-ref元素的role-name子元素中。 分别地声明角色可使高级IDE处理安全信息更为容易 -->
+	<security-role></security-role>
+
+	<!--声明Web应用的环境项 -->
+	<env-entry></env-entry>
+
+	<!--声明一个EJB的主目录的引用 -->
+	<ejb-ref></ejb-ref>
+
+	<!--声明一个EJB的本地主目录的应用 -->
+	<ejb-local-ref></ejb-local-ref>
+
+</web-app>
+```  
+
+<br />  
+**6.3) 更多web.xml配置**  
+- 6.3.1) Web应用图标：  
+```xml  
+<!-- 指出IDE和GUI工具用来表示Web应用的大图标和小图标 -->  
+<icon> 
+  <small-icon>/images/app_small.gif</small-icon>  
+  <large-icon>/images/app_large.gif</large-icon>   
+</icon> 
+```  
+
+- 6.3.2) Web 应用名称：  
+```xml  
+<!-- 提供GUI工具可能会用来标记这个特定Web应用的一个名称   -->
+<display-name>Tomcat Example</display-name> 
+```  
+- 6.3.3) Web 应用描述：  
+```xml  
+<!--给出与此相关的说明性文本 -->
+<disciption>Tomcat Example servlets and JSP pages.</disciption> 
+```  
+- 6.3.4) 上下文参数：  
+```xml  
+<!--声明应用范围内的初始化参数 -->
+<context-param> 
+  <param-name>ContextParameter</para-name> 
+  <param-value>test</param-value> 
+  <description>It is a test parameter.</description> 
+</context-param> 
+
+<!-- 在servlet里面可以通过getServletContext().getInitParameter("context/param")得到 -->
+```  
+
+- 6.3.5) 过滤器配置：  
+```xml  
+<!--将一个名字与一个实现javaxs.servlet.Filter接口的类相关联 -->
+<filter> 
+  <filter-name>setCharacterEncoding</filter-name> 
+  <filter-class>com.myTest.setCharacterEncodingFilter</filter-class> 
+  <init-param> 
+  <param-name>encoding</param-name> 
+  <param-value>GB2312</param-value> 
+  </init-param> 
+</filter> 
+
+<filter-mapping> 
+  <filter-name>setCharacterEncoding</filter-name> 
+  <url-pattern>/*</url-pattern> 
+</filter-mapping> 
+```  
+
+- 6.3.6) 监听器配置    
+```xml  
+<listener> 
+  <listerner-class>listener.SessionListener</listener-class> 
+</listener> 
+```  
+- 6.3.7) Servlet配置  
+```xml  
+<!--基本配置 -->
+<servlet>  
+  <servlet-name>snoop</servlet-name> 
+  <servlet-class>SnoopServlet</servlet-class> 
+</servlet> 
+
+<servlet-mapping>  
+  <servlet-name>snoop</servlet-name>  
+  <url-pattern>/snoop</url-pattern>   
+</servlet-mapping>  
+
+<!-- 高级配置-->
+<servlet> 
+  <servlet-name>snoop</servlet-name>  
+  <servlet-class>SnoopServlet</servlet-class>   
+  <init-param>  
+  <param-name>foo</param-name> 
+  <param-value>bar</param-value> 
+  </init-param> 
+  <run-as> 
+  <description>Security role for anonymous access</description> 
+  <role-name>tomcat</role-name> 
+  </run-as> 
+</servlet> 
+
+<servlet-mapping> 
+  <servlet-name>snoop</servlet-name> 
+  <url-pattern>/snoop</url-pattern> 
+</servlet-mapping> 
+
+<!--元素说明 -->  
+<servlet></servlet> <!--用来声明一个servlet的数据，主要有以下子元素-->   
+<servlet-name></servlet-name> <!--指定servlet的名称 --> 
+<servlet-class></servlet-class> <!--指定servlet的类名称 --> 
+<jsp-file></jsp-file> <!--指定web站台中的某个JSP网页的完整路径-->  
+<init-param></init-param> <!--用来定义参数，可有多个init-param。在servlet类中通过getInitParamenter(String name)方法访问初始化参数 -->  
+<load-on-startup></load-on-startup> <!--指定当Web应用启动时，装载Servlet的次序。 当值为正数或零时：Servlet容器先加载数值小的servlet，再依次加载其他数值大的servlet. 当值为负或未定义：Servlet容器将在Web客户首次访问这个servlet时加载它 -->  
+<servlet-mapping></servlet-mapping> <!--用来定义servlet所对应的URL，包含两个子元素 --> 
+<servlet-name></servlet-name> <!--指定servlet的名称 --> 
+<url-pattern></url-pattern> <!--指定servlet所对应的URL --> 
+```  
+
+- 6.3.8) 会话超时配置（单位为分钟）   
+```xml  
+<session-config>
+  <session-timeout>120</session-timeout> 
+</session-config> 
+```   
+- 6.3.9) MIME类型配置  
+```xml  
+<mime-mapping> 
+  <extension>htm</extension> 
+  <mime-type>text/html</mime-type> 
+</mime-mapping> 
+```  
+
+- 6.3.10) 指定欢迎文件页配置  
+```xml  
+<welcome-file-list> 
+  <welcome-file>index.jsp</welcome-file> 
+  <welcome-file>index.html</welcome-file> 
+  <welcome-file>index.htm</welcome-file> 
+</welcome-file-list> 
+```  
+- 6.3.11) 配置错误页面  
+```xml  
+<!-- 1. 通过错误码来配置error-page -->
+<error-page> 
+  <error-code>404</error-code> 
+  <location>/NotFound.jsp</location> 
+</error-page> 
+
+<!-- 上面配置了当系统发生404错误时，跳转到错误处理页面NotFound.jsp -->
+
+<!-- 2. 通过异常的类型配置error-page -->
+<error-page> 
+  <exception-type>java.lang.NullException</exception-type> 
+  <location>/error.jsp</location> 
+</error-page> 
+
+<!--上面配置了当系统发生java.lang.NullException（即空指针异常）时，跳转到错误处理页面error.jsp -->
+```  
+
+- 6.3.12) TLD配置  
+```xml  
+<taglib> 
+  <taglib-uri>http://jakarta.apache.org/tomcat/debug-taglib</taglib-uri> 
+  <taglib-location>/WEB-INF/jsp/debug-taglib.tld</taglib-location> 
+</taglib> 
+
+<!-- 如果IDE一直在报错,应该把<taglib> 放到 <jsp-config>中-->
+<jsp-config> 
+  <taglib> 
+    <taglib-uri>http://jakarta.apache.org/tomcat/debug-taglib</taglib-uri> 
+    <taglib-location>/WEB-INF/pager-taglib.tld</taglib-location> 
+  </taglib> 
+</jsp-config> 
+```  
+
+- 6.3.13) 资源管理对象配置  
+```xml  
+<resource-env-ref> 
+  <resource-env-ref-name>jms/StockQueue</resource-env-ref-name> 
+</resource-env-ref>
+```  
+- 6.3.14) 资源工厂配置  
+```xml  
+<resource-ref> 
+  <res-ref-name>mail/Session</res-ref-name> 
+  <res-type>javax.mail.Session</res-type> 
+  <res-auth>Container</res-auth> 
+</resource-ref> 
+
+<!--配置数据库连接池就可在此配置 -->
+<resource-ref> 
+  <description>JNDI JDBC DataSource of shop</description> 
+  <res-ref-name>jdbc/sample_db</res-ref-name> 
+  <res-type>javax.sql.DataSource</res-type> 
+  <res-auth>Container</res-auth> 
+</resource-ref> 
+```  
+
+- 6.3.15) 安全限制配置  
+```xml  
+<security-constraint> 
+  <display-name>Example Security Constraint</display-name> 
+  <web-resource-collection> 
+    <web-resource-name>Protected Area</web-resource-name>  
+    <url-pattern>/jsp/security/protected/*</url-pattern> 
+    <http-method>DELETE</http-method> 
+    <http-method>GET</http-method> 
+    <http-method>POST</http-method> 
+    <http-method>PUT</http-method> 
+  </web-resource-collection> 
+  <auth-constraint> 
+    <role-name>tomcat</role-name> 
+    <role-name>role1</role-name> 
+  </auth-constraint> 
+</security-constraint> 
+```  
+
+- 6.3.16) 登陆验证配置  
+```xml  
+<login-config> 
+  <auth-method>FORM</auth-method> 
+  <realm-name>Example-Based Authentiation Area</realm-name> 
+  <form-login-config> 
+    <form-login-page>/jsp/security/protected/login.jsp</form-login-page>
+    <form-error-page>/jsp/security/protected/error.jsp</form-error-page>
+  </form-login-config> 
+</login-config> 
+```  
+
+- 6.3.17)  安全角色  
+```xml  
+<!-- security-role元素给出安全角色的一个列表 -->  
+<!-- 这些角色将出现在servlet元素内security-role-ref元素的role-name子元素中-->  
+<!-- 分别地声明角色可使高级IDE处理安全信息更为容易 -->  
+<security-role>
+  <role-name>tomcat</role-name> 
+</security-role> 
+```  
+
+- 6.3.18) Web环境参数  
+```xml  
+<!-- env-entry元素声明Web应用的环境项 -->  
+<env-entry> 
+  <env-entry-name>minExemptions</env-entry-name> 
+  <env-entry-value>1</env-entry-value> 
+  <env-entry-type>java.lang.Integer</env-entry-type> 
+</env-entry> 
+```  
+
+- 6.3.19) EJB 声明  
+```xml  
+<ejb-ref> 
+  <description>Example EJB reference</decription> 
+  <ejb-ref-name>ejb/Account</ejb-ref-name> 
+  <ejb-ref-type>Entity</ejb-ref-type> 
+  <home>com.mycompany.mypackage.AccountHome</home> 
+  <remote>com.mycompany.mypackage.Account</remote> 
+</ejb-ref> 
+```  
+- 6.3.20) 本地EJB声明  
+```xml  
+<ejb-local-ref> 
+  <description>Example Loacal EJB reference</decription> 
+  <ejb-ref-name>ejb/ProcessOrder</ejb-ref-name> 
+  <ejb-ref-type>Session</ejb-ref-type> 
+  <local-home>com.mycompany.mypackage.ProcessOrderHome</local-home> 
+  <local>com.mycompany.mypackage.ProcessOrder</local> 
+</ejb-local-ref> 
+```  
+- 6.3.21) 配置DWR  
+```xml  
+<servlet> 
+  <servlet-name>dwr-invoker</servlet-name> 
+  <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class> 
+</servlet> 
+
+<servlet-mapping> 
+  <servlet-name>dwr-invoker</servlet-name> 
+  <url-pattern>/dwr/*</url-pattern> 
+</servlet-mapping> 
+```  
+- 6.3.22) 配置Struts  
+```xml  
+<display-name>Struts Blank Application</display-name> 
+<servlet> 
+  <servlet-name>action</servlet-name> 
+  <servlet-class> 
+    org.apache.struts.action.ActionServlet 
+  </servlet-class> 
+  <init-param> 
+    <param-name>detail</param-name> 
+    <param-value>2</param-value>
+  </init-param> 
+  <init-param> 
+    <param-name>debug</param-name> 
+    <param-value>2</param-value> 
+  </init-param> 
+  <init-param> 
+    <param-name>config</param-name> 
+    <param-value>/WEB-INF/struts-config.xml</param-value> 
+  </init-param> 
+  <init-param> 
+    <param-name>application</param-name> 
+    <param-value>ApplicationResources</param-value> 
+  </init-param> 
+  <load-on-startup>2</load-on-startup> 
+</servlet> 
+
+<servlet-mapping> 
+  <servlet-name>action</servlet-name> 
+  <url-pattern>*.do</url-pattern> 
+</servlet-mapping> 
+
+<welcome-file-list> 
+  <welcome-file>index.jsp</welcome-file> 
+</welcome-file-list> 
+
+<!-- Struts Tag Library Descriptors --> 
+<taglib> 
+  <taglib-uri>struts-bean</taglib-uri> 
+  <taglib-location>/WEB-INF/tld/struts-bean.tld</taglib-location> 
+</taglib> 
+
+<taglib> 
+  <taglib-uri>struts-html</taglib-uri> 
+  <taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location> 
+</taglib> 
+
+<taglib> 
+  <taglib-uri>struts-nested</taglib-uri> 
+  <taglib-location>/WEB-INF/tld/struts-nested.tld</taglib-location> 
+</taglib> 
+
+<taglib> 
+  <taglib-uri>struts-logic</taglib-uri> 
+  <taglib-location>/WEB-INF/tld/struts-logic.tld</taglib-location> 
+</taglib> 
+
+<taglib> 
+  <taglib-uri>struts-tiles</taglib-uri> 
+  <taglib-location>/WEB-INF/tld/struts-tiles.tld</taglib-location> 
+</taglib>
+```  
+- 6.3.23) 配置spring  
+```xml  
+<!-- 指定spring配置文件位置 --> 
+<context-param> 
+  <param-name>contextConfigLocation</param-name> 
+  <!--加载多个spring配置文件 --> 
+  <param-value> 
+    /WEB-INF/applicationContext.xml, /WEB-INF/action-servlet.xml 
+  </param-value> 
+</context-param> 
+
+<!-- 定义SPRING监听器，加载spring --> 
+<listener> 
+  <listener-class>org.springframework.web.context.ContextLoaderListener
+  </listener-class> 
+</listener> 
+<listener> 
+  <listener-class> 
+    org.springframework.web.context.request.RequestContextListener 
+  </listener-class> 
+</listener>
+```  
+
+<br/>  
+##### 参考来源：  
+a) [Java Web的web.xml文件作用及基本配置](https://www.cnblogs.com/EasonJim/p/6221952.html)  
+b) [史上最全web.xml配置文件元素详解](https://www.cnblogs.com/hafiz/p/5715523.html)  
+<br/>  
+
+#### %7、Servlet的线程安全问题  
+##### 回答:  
+
+**7.1) Servlet多线程** 
+```bash  
+Servlet规范中定义，默认情况下（Servlet不是在分布式的环境中部署），
+Servlet容器对声明的每一个Servlet，只创建一个实例。
+如果有多个客户端请求同时访问这个Servlet，Servlet容器如何处理多个请求呢？
+答案是采用多线程，Servlet容器维护一个线程池来服务请求。
+当容器接收到一个访问Servlet的请求，调度者线程从线程池中选取一个工作线程，
+将请求传递给该线程，然后由这个线程执行Servlet的service()方法。
+```  
+
+**7.2) 线程安全的Servlet** 
+* 7.2.1) 变量的线程安全  
+```bash  
+Servlet是单实例多线程模型，多个线程共享一个Servlet实例，因此对于实例变量的访问是非线程安全的。
+建议：在Servlet中尽可能的使用局部变量，应该只使用只读的实例变量和静态变量。
+如果非得使用共享的实例变量或静态变量，在修改共享变量时应该注意线程同步。
+```  
+
+* 7.2.2) 属性的线程安全  
+```bash  
+在Servlet中，可以访问保存在ServletContext、HttpSession和ServletRequest对象中的属性。
+那么这三种不同范围的对象，属性访问是否是线程安全的呢？
+- ServletContext：
+  该对象被Web应用程序的所有Servlet共享，多线程环境下肯定是非线程安全的。
+
+- HttpSession：
+  HttpSession对象只能在同属于一个Session的请求线程中共享。
+  对于同一个Session，我们可能会认为在同一时刻只有一个用户请求。
+  因此，Session对象的属性访问是线程安全的。
+  但是，如果用户打开多个同属于一个进程的浏览器窗口，
+  在这些窗口中的访问请求同属于一个Session，对于多个线程的并发修改显然不是线程安全的。
+
+- ServletRequest：
+  因为Servlet容器对它所接收到的每一个请求，
+  都创建一个新的ServletRequest对象，
+  所以ServletRequest对象只在一个线程中被访问，
+  因此对ServletRequest的属性访问是线程安全的。
+  但是，如果在Servlet中创建了自己的线程，
+  那么对ServletRequest的属性访问的线程安全性就得自己去保证。
+  此外，如果将当前请求的Servlet通过HttpSession或者ServletContext共享，
+  当然也是非线程安全的。
+```  
+
+<br/>  
+##### 参考来源：  
+a) [Servlet、Filter、Listener深入理解](https://blog.csdn.net/sunxianghuang/article/details/52107376)  
+<br/>  
+
+---
+
+>Contributes: bigablecat
 >
 >Reviewers : Hollis, Kevin Lee
