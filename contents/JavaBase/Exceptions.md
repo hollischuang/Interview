@@ -24,8 +24,10 @@ Exception类又分为运行时异常（Runtime Exception）和受检查的异常
 - finally：表示代码块一定要被执行，一般用来关闭JDBC，保证Unlock锁等动作。但是也有例外，在finally执行之前强制退出进程，finally代码块不执行。
 - finalize：在垃圾回收器回收对象之前调用的方法以回收特定的垃圾，现在已经不推荐使用，因为finalize执行具有不确定性，有可能造成严重后果。
 
-
 #### %4、try-catch-finally中，如果在catch中return了，finally中的代码还会执行么，原理是什么？
+
+- 回答：还会执行
+- 原理：return语句并不是函数的最终出口，如果有finally语句，这在return之后还会执行finally（return的值会暂存在栈里面，等待finally执行后再返回）
 
 #### ！5、列举3个以上的RuntimeException
 
@@ -42,13 +44,35 @@ SecurityException - 安全异常
 UnsupportedOperationException - 不支持的操作异常
 ```
 
-
 #### ！6、Java中的异常处理机制的简单原理和应用
 
+- 原理：
+
+  ```b
+  Exception表示程序需要捕捉和处理的的异常,可以分为java标准定义的异常和程序员自定义异常2种.
+     （1）一种是当程序违反了java语规则的时候,JAVA虚拟机就会将发生的错误表示为一个异常.这里语法规则指的是JAVA类库内置的语义检查。
+     （2）另一种情况就是JAVA允许程序员扩展这种语义检查，程序员可以创建自己的异常，并自由选择在何时用throw关键字引发异常。所有的异常都是Thowable的子类。
+  ```
+
+- 应用：
+
+  ```java
+  Try{
+      //可能发现异常的语句块
+  }catch(异常类型,e){
+     //发生异常时候的执行语句块
+  } finnally{
+    //不管是否发生异常都执行的语句块
+  }
+  ```
 
 #### 参考资料
 
+- [常见的几种RuntimeException](https://blog.csdn.net/qq635785620/article/details/7781026)
+- [Java中处理异常中return关键字](http://www.cnblogs.com/zhangzongle/p/5426061.html)
+- [Java中的异常处理机制的简单原理和应用](https://blog.csdn.net/qq_23127721/article/details/52856220) 
 
->Contributes: hueizhe, zhangyue
+
+>Contributes:zhangyue
 >
 >Reviewers : Hollis, Kevin Lee
