@@ -27,7 +27,16 @@ Exception类又分为运行时异常（Runtime Exception）和受检查的异常
 #### %4、try-catch-finally中，如果在catch中return了，finally中的代码还会执行么，原理是什么？
 
 - 回答：还会执行
-- 原理：return语句并不是函数的最终出口，如果有finally语句，这在return之后还会执行finally（return的值会暂存在栈里面，等待finally执行后再返回）
+
+- 原理：finally 块无论是否捕获或处理异常，finally块里的语句都会被执行。当在try块或catch块中遇到return语句时，finally语句块将在方法返回之前被执行。在以下4种特殊情况下，finally块不会被执行：
+
+   1）在finally语句块中发生了异常。
+
+   2）在前面的代码中用了System.exit()退出程序。
+
+   3）程序所在的线程死亡。
+
+   4）关闭CPU。 
 
 #### ！5、列举3个以上的RuntimeException
 
@@ -46,13 +55,7 @@ UnsupportedOperationException - 不支持的操作异常
 
 #### ！6、Java中的异常处理机制的简单原理和应用
 
-- 原理：
-
-  ```b
-  Exception表示程序需要捕捉和处理的的异常,可以分为java标准定义的异常和程序员自定义异常2种.
-     （1）一种是当程序违反了java语规则的时候,JAVA虚拟机就会将发生的错误表示为一个异常.这里语法规则指的是JAVA类库内置的语义检查。
-     （2）另一种情况就是JAVA允许程序员扩展这种语义检查，程序员可以创建自己的异常，并自由选择在何时用throw关键字引发异常。所有的异常都是Thowable的子类。
-  ```
+- 在 Java 应用程序中，异常处理机制为：抛出异常，捕捉异常。 
 
 - 应用：
 
@@ -70,7 +73,7 @@ UnsupportedOperationException - 不支持的操作异常
 
 - [常见的几种RuntimeException](https://blog.csdn.net/qq635785620/article/details/7781026)
 - [Java中处理异常中return关键字](http://www.cnblogs.com/zhangzongle/p/5426061.html)
-- [Java中的异常处理机制的简单原理和应用](https://blog.csdn.net/qq_23127721/article/details/52856220) 
+- [深入理解java异常处理机制](https://blog.csdn.net/hguisu/article/details/6155636) 
 
 
 >Contributes:zhangyue
