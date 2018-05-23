@@ -65,7 +65,7 @@ boolean updateGoodsName(int id,String newName,int version);
 ~~~sql
 update goods set name=#{newName},version=#{version} where id=#{id} and version<${version}
 ~~~
--状态机控制
+- 状态机控制
 
 这种方法适合在有状态机流转的情况下，比如就会订单的创建和付款，订单的付款肯定是在之前，这时我们可以通过在设计状态字段时，使用int类型，并且通过值类型的大小来做幂等，比如订单的创建为0，付款成功为100。付款失败为99
 
@@ -73,7 +73,7 @@ update goods set name=#{newName},version=#{version} where id=#{id} and version<$
 ~~~sql
 update `order` set status=#{status} where id=#{id} and status<#{status}
 ~~~
-。
+
 
 ## 8. 如何保证接口的幂等性
 
