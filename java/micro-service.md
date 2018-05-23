@@ -73,10 +73,7 @@ update goods set name=#{newName},version=#{version} where id=#{id} and version<$
 ~~~sql
 update `order` set status=#{status} where id=#{id} and status<#{status}
 ~~~
-
-
-## 8. 如何保证接口的幂等性
-
+## 8. 微服务的安全
 
 ## 9.说说CAP 定理 和 BASE 理论
 
@@ -95,8 +92,74 @@ update `order` set status=#{status} where id=#{id} and status<#{status}
 
 ## 14.如何快速追踪与定位问题
 
+- CPU占用较高场景
+收集当前CPU占用较高的线程信息，执行如下命令：
+~~~sh
+top -H -p PID -b -d 1 -n 1 > top.log
+~~~
+或
+~~~sh
+top -H -p PID
+~~~
 
-## 15. 微服务的安全
+显示的都是某一个进程内的线程信息，找到cpu消耗最高的线程id，再配合jstack来分析耗cpu的代码位置，那如何分析呢？
+
+先执行jstack获取线程信息
+~~~sh
+jstack -l PID > jstackl.log
+~~~
+将PID（29978）转成16进制：0x751a，16进制转换工具很多可以在线随便搜索一个或者基本功好的自己计算。
+
+打开jstackl.log，查找nid=0x751a的信息，这样就定位到了具体的代码位置，
+
+通过上面的步骤就可以轻松的定位那个线程导致cpu过高，当然也可以通过其他方式来定位，下面介绍一个快捷的方式
+~~~bash
+#线程cpu占用
+#!/bin/bash
+
+[ $# -ne 1 ] && exit 1
+
+jstack $1 >/tmp/jstack.log
+
+for cpu_tid in `ps -mp $1 -o THREAD,tid,time|sort -k2nr| sed -n '2,15p' |awk '{print$2"_"$(NF-1)}'`;do
+
+cpu=`echo $cpu_tid | cut -d_ -f1`
+
+tid=`echo $cpu_tid | cut -d_ -f2`
+
+xtid=`printf "%x\n" $tid`
+
+echo -e "\033[31m========================$xtid $cpu%\033[0m"
+
+cat /tmp/jstack.log | sed -n -e "/0x$xtid/,/^$/ p"
+
+#cat /tmp/jstack.log | grep "$xtid" -A15
+
+done
+
+rm /tmp/jstack.log
+~~~
+上述命令会以百分比的方式来显示每个线程的cpu消耗百分比
+
+- 内存消耗过高场景
+
+收集当前活跃对象数据量信息，执行以下命令获取
+~~~sh
+jmap -histo:live pid > jmaplive.log
+~~~
+ps. jmap -histo:live 数据可以多进行几次，比如说间隔几分钟输出一次，然后对比两个文件的差异可以看出gc回收的对象，如果多次结果没有差异并且gc频繁执行，证明剩余对象在引用无法gc回收，这时就需要对服务进行限流给服务喘气的机会。
+
+或者收集dump信息，通常这种获取方式需要较长时间执行，并产生大容量的dump文件，我们会考虑逐步废掉通过这个文件来分析。执行以下命令获取
+~~~sh
+jmap -dump:file=./dump.mdump pid
+~~~
+dump文件通过MAT工具来进行内存泄漏分析。
+
+线程、内存分析工具
+上面说过通过jstack生成的线程文件是可以通过工具来直接打开可视化分析的，这里我推荐使用：tda（Thread Dump Analyzer）
+
+通过jmap -dump生成的dump文件也是可以通过工具来进行可视化分析的，这里我推荐使用MAT（Memory Analysis Tools）它可以通过eclipse plugin的方式使用或者独立的下载安装包使用。
+
 
 
 >引用
@@ -105,4 +168,7 @@ update `order` set status=#{status} where id=#{id} and status<#{status}
 3. [在高并发的核心技术中如何实现幂等性](https://www.jianshu.com/p/ce5f5aa3d17f)
 4. [如何保证幂等性](https://help.aliyun.com/document_detail/25693.html)
 5. [分布式系统互斥性与幂等性问题的分析与解决](https://zhuanlan.zhihu.com/p/22820761)
-
+6. [设计 Restful API](http://www.importnew.com/28233.html)
+7. [REST接口设计规范](http://wangwei.info/about-rest-api/)
+8. [从 Feign 使用注意点到 RESTFUL 接口设计规范](http://www.importnew.com/27266.html)
+9.[生产环境如何快速跟踪、分析、定位问题-Java](https://ningyu1.github.io/site/post/55-java-jvm-analysis/)
