@@ -126,15 +126,74 @@ Step6：栈帧中obj2不再指向Java堆，GcObject实例2的引用计数减1，
 
 答案是可以。
 
-调用System.gc() 即可马上触发GC操作
+Java的公有API可以主动调用GC的有两种办法，
+
+ 一个是
+~~~
+    System.gc();
+    // 或者下面，两者等价
+    Runtime.getRuntime().gc()
+~~~
+还有一个是JMX：
+~~~
+java.lang.management.MemoryMXBean.gc()
+~~~
+规范是通知虚拟机尽快执行，没有强制规定执行时间
 
 但是一般不要主动去调用GC，System.gc主动进行垃圾回收时一个非常危险的动作。因为它要停止所有的响应，才能检查内存中是否有可回收的对象，这对一个应用系统风险极大。  
 如果一个Web应用，所有的请求都会暂停，等待垃圾回收器执行完毕，若此时堆内存（Heap）中的对象少的话则可以接受，一旦对象较多（现在的Web项目越做越大，框架工具越来越多，加载到内存中的对象就更多了），这个过程非常耗时，可能是0.01秒，也可能是1秒，甚至可能是20秒，这就会严重影响到业务的正常运行。
 #### ！4、JVM的内存结构，堆和栈的区别
 
+jvm 内存结构
+
+- 栈：存放局部变量
+- 堆：存放对象以及数组的数据，
+- 方法区：被虚拟机加载的类信息、常量、静态常量等。
+- 程序计数器(和系统相关)
+- 本地方法栈
+
+
+堆和栈的区别
+
+Java把内存划分成两种：一种是堆内存，一种是栈内存。
+ 
+- 堆：
+    - 主要用于存储实例化的对象，数组。由JVM动态分配内存空间。一个JVM只有一个堆内存，线程是可以共享数据的。
+    - 堆内存用来存放由new创建的对象和数组。
+    - 在堆中分配的内存，由Java虚拟机的自动垃圾回收器来管理
+    - 如果堆内存没有可用的空间存储生成的对象，JVM会抛出java.lang.OutOfMemoryError
+    - -Xms选项可以设置堆的开始时的大小，-Xmx选项可以设置堆的最大值
+    
+ 
+- 栈：
+    - 主要用于存储局部变量和对象的引用变量，每个线程都会有一个独立的栈空间，所以线程之间是不共享数据的。
+    - 基本类型的变量和对象的引用变量都在函数的栈内存中分配
+    - 当在一段代码块定义一个变量时，Java就在栈中为这个变量分配内存空间，当超过变量的作用域后，Java会自动释放掉为该变量所分配的内存空间，该内存空间可以立即被另作他用
+    - 如果栈内存没有可用的空间存储方法调用和局部变量，JVM会抛出java.lang.StackOverFlowError
+    - 栈的内存要远远小于堆内存，如果你使用递归的话，那么你的栈很快就会充满。如果递归没有及时跳出，很可能发生StackOverFlowError问题
+    - -Xss选项设置栈内存的大小
+
 
 #### ！5、JVM堆的分代
 
+
+
+堆内存同样被划分成了多个区域：
+
+- JVM堆（Heap）= 新生代（Young） + 旧生代（Tenured）
+
+- 新生代（Young）= Eden区 + Survivor区
+
+
+不同区域的存放的对象拥有不同的生命周期：
+
+- 新建（New）或者短期的对象存放在Eden区域；
+- 幸存的或者中期的对象将会从Eden区域拷贝到Survivor区域；
+- 始终存在或者长期的对象将会从Survivor拷贝到Old Generation；
+
+生命周期来划分对象，可以消耗很短的时间和CPU做一次小的垃圾回收（GC）。原因是跟C一样，内存的释放（通过销毁对象）通过2种不同的GC实现：Young GC、Full GC。
+
+为了检查所有的对象是否能够被销毁，Young GC会标记不能销毁的对象，经过多次标记后，对象将会被移动到老年代中
 
 #### %6、Java中的内存溢出是什么，和内存泄露有什么关系
 Java内存泄漏就是程序中动态分配内存给一些临时对象，但是对象不会被GC所回收，它始终占用内存。即被分配的对象可达但已无用,
@@ -249,8 +308,15 @@ public class StackOverflowTest {
 
 
 #### 参考资料
-[gc的概念，如果A和B对象循环引用，是否可以被GC](https://www.zhihu.com/question/21539353/answer/95667088?from=profile_answer_card)
+1. [gc的概念，如果A和B对象循环引用，是否可以被GC](https://www.zhihu.com/question/21539353/answer/95667088?from=profile_answer_card)
 
+2. [JAVA的内存模型及结构](http://ifeve.com/under-the-hood-runtime-data-areas-javas-memory-model/)
+
+3. [java oracle jvm docs](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-2.html#jvms-2.5)
+
+4. [Java堆和栈的区别和介绍](https://www.cnblogs.com/shsxt/p/9068602.html)
+
+5.[在Java中如何主动调用GC](https://www.zhihu.com/question/31307968)
 >Contributes: hueizhe
 >
 >Reviewers : Hollis, Kevin Lee
