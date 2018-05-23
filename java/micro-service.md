@@ -93,6 +93,7 @@ update `order` set status=#{status} where id=#{id} and status<#{status}
 ## 14.如何快速追踪与定位问题
 
 - CPU占用较高场景
+
 收集当前CPU占用较高的线程信息，执行如下命令：
 ~~~sh
 top -H -p PID -b -d 1 -n 1 > top.log
@@ -171,4 +172,4 @@ dump文件通过MAT工具来进行内存泄漏分析。
 6. [设计 Restful API](http://www.importnew.com/28233.html)
 7. [REST接口设计规范](http://wangwei.info/about-rest-api/)
 8. [从 Feign 使用注意点到 RESTFUL 接口设计规范](http://www.importnew.com/27266.html)
-9.[生产环境如何快速跟踪、分析、定位问题-Java](https://ningyu1.github.io/site/post/55-java-jvm-analysis/)
+9. [生产环境如何快速跟踪、分析、定位问题-Java](https://ningyu1.github.io/site/post/55-java-jvm-analysis/)
