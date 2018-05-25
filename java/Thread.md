@@ -164,6 +164,44 @@ public Object call() throws Exception {
 
 ## 8.ThreadLocal 的原理分析
 
+ThreadLocal类的作用是为每个线程都创建一个变量副本, 每个线程都可以修改自己所拥有的变量副本, 而不会影响其他线程的副本. 其实这也是解决线程安全的问题的一种方法
+
+ThreadLocal是如何做到为每一个线程维护变量的副本的呢？其实实现的思路很简单：在ThreadLocal类中有一个Map，用于存储每一个线程的变量副本。
+
+看看get()函数的源码：
+~~~java
+public T get() {
+        Thread t = Thread.currentThread();
+        ThreadLocalMap map = getMap(t);
+        if (map != null) {
+            ThreadLocalMap.Entry e = map.getEntry(this);
+            if (e != null)
+                return (T)e.value;
+        }
+        return setInitialValue();
+    }
+~~~
+
+getMap(t);函数传入thread参数，获取到thread的map。然后调用map的getEntry()函数，得到最终的entry。
+
+Map中元素的键为threadlocal对象，而值对应线程的变量副本。
+
+
+
+
+---
+ThreadLocal并不能替代同步机制，两者面向的问题领域不同。
+
+同步机制是为了同步多个线程对相同资源的并发访问，是为了多个线程之间进行通信的有效方式；
+
+而ThreadLocal是隔离多个线程的数据共享，从根本上就不在多个线程之间共享资源（变量），这样当然不需要对多个线程进行同步了。
+
+所以，如果你需要进行多个线程之间进行通信，则使用同步机制；
+
+如果需要隔离多个线程之间的共享冲突，可以使用ThreadLocal，这将极大地简化你的程序，使程序更加易读、简洁
+
+[ThreadLocal工作原理](https://blog.csdn.net/imzoer/article/details/8262101)
+
 
 ## 9.线程池的实现原理
 
