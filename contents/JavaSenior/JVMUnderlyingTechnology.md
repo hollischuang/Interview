@@ -316,7 +316,9 @@ public class StackOverflowTest {
 
 4. [Java堆和栈的区别和介绍](https://www.cnblogs.com/shsxt/p/9068602.html)
 
-5.[在Java中如何主动调用GC](https://www.zhihu.com/question/31307968)
+5. [在Java中如何主动调用GC](https://www.zhihu.com/question/31307968)
+
+6. [java面试题-基础知识](http://ifeve.com/java%E9%9D%A2%E8%AF%95%E9%A2%98-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/)
 >Contributes: hueizhe
 >
 >Reviewers : Hollis, Kevin Lee
