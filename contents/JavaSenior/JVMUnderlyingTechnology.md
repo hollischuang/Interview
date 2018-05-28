@@ -121,6 +121,7 @@ Step6：栈帧中obj2不再指向Java堆，GcObject实例2的引用计数减1，
 
 #### %2、jvm gc如何判断对象是否需要回收，有哪几种方式？
 
+见问题1
 
 #### ！3、Java中能不能主动触发GC
 
@@ -303,10 +304,91 @@ public class StackOverflowTest {
 
 #### ！7、Java的类加载机制，什么是双亲委派
 
+- 什么是类的加载
+
+    类的加载指的是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个java.lang.Class对象，用来封装类在方法区内的数据结构。
+
+    类的加载的最终产品是位于堆区中的Class对象，Class对象封装了类在方法区内的数据结构，并且向Java程序员提供了访问方法区内的数据结构的接口。
+
+    类加载器并不需要等到某个类被“首次主动使用”时再加载它，JVM规范允许类加载器在预料某个类将要被使用时就预先加载它，
+
+    如果在预先加载的过程中遇到了.class文件缺失或存在错误，类加载器必须在程序首次主动使用该类时才报告错误（LinkageError错误）如果这个类一直没有被程序主动使用，那么类加载器就不会报告错误
+
+- 加载.class文件的方式
+    - 从本地系统中直接加载
+    - 通过网络下载.class文件
+    - 从zip，jar等归档文件中加载.class文件
+    - 从专有数据库中提取.class文件
+    - 将Java源文件动态编译为.class文件
+
+- JVM类加载机制
+
+    - 全盘负责，当一个类加载器负责加载某个Class时，该Class所依赖的和引用的其他Class也将由该类加载器负责载入，除非显示使用另外一个类加载器来载入
+
+    - 父类委托，先让父类加载器试图加载该类，只有在父类加载器无法加载该类时才尝试从自己的类路径中加载该类
+
+    - 缓存机制，缓存机制将会保证所有加载过的Class都会被缓存，当程序中需要使用某个Class时，类加载器先从缓存区寻找该Class，只有缓存区不存在，系统才会读取该类对应的二进制数据，并将其转换成Class对象，存入缓存区。这就是为什么修改了Class后，必须重启JVM，程序的修改才会生效
+
+- 双亲委派
+
+    - 双亲委派模型的工作流程是：
+    
+        如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把请求委托给父加载器去完成，依次向上，因此，所有的类加载请求最终都应该被传递到顶层的启动类加载器中，只有当父加载器在它的搜索范围中没有找到所需的类时，即无法完成该加载，子加载器才会尝试自己去加载该类。
+    
+    - 双亲委派机制:
+    
+        1. 当AppClassLoader加载一个class时，它首先不会自己去尝试加载这个类，而是把类加载请求委派给父类加载器ExtClassLoader去完成。
+    
+        2. 当ExtClassLoader加载一个class时，它首先也不会自己去尝试加载这个类，而是把类加载请求委派给BootStrapClassLoader去完成。
+    
+        3. 如果BootStrapClassLoader加载失败（例如在$JAVA_HOME/jre/lib里未查找到该class），会使用ExtClassLoader来尝试加载；
+    
+        4. 若ExtClassLoader也加载失败，则会使用AppClassLoader来加载，如果AppClassLoader也加载失败，则会报出异常ClassNotFoundException。
+    
+    - ClassLoader源码分析：
+        ~~~java
+        public Class<?> loadClass(String name)throws ClassNotFoundException {
+                    return loadClass(name, false);
+            }
+         
+            protected synchronized Class<?> loadClass(String name, boolean resolve)throws ClassNotFoundException {
+                    // 首先判断该类型是否已经被加载
+                    Class c = findLoadedClass(name);
+                    if (c == null) {
+                        //如果没有被加载，就委托给父类加载或者委派给启动类加载器加载
+                        try {
+                            if (parent != null) {
+                                 //如果存在父类加载器，就委派给父类加载器加载
+                                c = parent.loadClass(name, false);
+                            } else {
+                            //如果不存在父类加载器，就检查是否是由启动类加载器加载的类，通过调用本地方
+                            //法native Class findBootstrapClass(String name)
+                                c = findBootstrapClass0(name);
+                            }
+                        } catch (ClassNotFoundException e) {
+                         // 如果父类加载器和启动类加载器都不能完成加载任务，才调用自身的加载功能
+                            c = findClass(name);
+                        }
+                    }
+                    if (resolve) {
+                        resolveClass(c);
+                    }
+                    return c;
+                }
+       ~~~    
+        
+    - 双亲委派模型意义：
+
+        - 系统类防止内存中出现多份同样的字节码
+
+        - 保证Java程序安全稳定运行
 
 #### ！8、ClassLoader的类加载方式
 
+- 隐式加载：不通过在代码里调用ClassLoader来加载需要的类，而是通过JVM来自动加载需要的类到内存，
+  例如：当类中继承或者引用某个类时，JVM在解析当前这个类不在内存中时，就会自动将这些类加载到内存中。
 
+- 显示加载：在代码中通过ClassLoader类来加载一个类，例如调用this.getClass.getClassLoader().loadClass()或者Class.forName()。
 #### 参考资料
 1. [gc的概念，如果A和B对象循环引用，是否可以被GC](https://www.zhihu.com/question/21539353/answer/95667088?from=profile_answer_card)
 
@@ -319,6 +401,8 @@ public class StackOverflowTest {
 5. [在Java中如何主动调用GC](https://www.zhihu.com/question/31307968)
 
 6. [java面试题-基础知识](http://ifeve.com/java%E9%9D%A2%E8%AF%95%E9%A2%98-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/)
+
+7. [JVM（1）：Java 类的加载机制](http://www.importnew.com/23742.html)
 >Contributes: hueizhe
 >
 >Reviewers : Hollis, Kevin Lee
