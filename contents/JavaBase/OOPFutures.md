@@ -28,9 +28,10 @@ Java中不能多继承，可以多实现。
 即定义一个类的时候，可以同时实现多个接口，但是不能同时继承多个类。
 ```
 
-
-
 #### %4、Static Nested Class 和 Inner Class的不同
+
+- Inner Class 指内部类，Static Nested Class指静态内部类，两者最大的区别就在于是否有指向外部的引用上，前者的创建需要依赖于外部类的实例，后者的创建不依赖于外部类的实例；
+- 由于静态对象是默认加载，那么静态内部类会先于外部类被加载到内存中，因此非静态内部类中不能定义静态成员；而静态内部类中既可以有静态成员，也可以有非静态成员，但非静态成员需要静态内部类实例化后才能调用；
 
 #### ！5、重载和重写的区别。
 
@@ -48,8 +49,6 @@ Java中不能多继承，可以多实现。
   2. 返回类型必须与被重写的方法的返回类型相同；
   3. 访问修饰符的限制一定要大于被重写方法的访问修饰符（public>protected>default>private）
   4. 重写方法一定不能抛出新的检查异常或者比被重写方法声明更宽泛的检查性异常；
-
-参考来源：https://www.cnblogs.com/upcwanghaibo/p/6527354.html
 
 #### ！6、是否可以继承String类
 
@@ -100,8 +99,9 @@ Java中不能多继承，可以多实现。
 - [java中private，public，protected详解](https://blog.csdn.net/aimeimeiTS/article/details/54136219)
 - [String类为什么是final的 ](https://blog.csdn.net/qq_27093465/article/details/52190915)
 - [Java接口-菜鸟教程](http://www.runoob.com/java/java-interfaces.html)
+- [重载与重写的区别](https://www.cnblogs.com/upcwanghaibo/p/6527354.html)
 
 
->Contributes: zhangyue
+>Contributes: zhangyue, Leo
 >
 >Reviewers : Hollis, Kevin Lee

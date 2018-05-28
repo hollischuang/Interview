@@ -63,12 +63,6 @@
   5. 若两个对象 hashCode() 返回不同的 int 数，则 equals() 一定返回 false； 
   6. 同一对象在执行期间若已经存储在集合中，则不能修改影响 hashCode 值的相关信息，否则会导致内存泄露问题
 
-参考来源：
-
-https://blog.csdn.net/haobaworenle/article/details/53819838
-
-https://blog.csdn.net/fenglibing/article/details/8905007
-
 ##### ！4、Input/OutputStream和Reader/Writer有什么区别
 
 ``` bash
@@ -142,8 +136,9 @@ https://blog.csdn.net/fenglibing/article/details/8905007
   - ObjectOutputStream类与ObjectInputStream类
   ```
 
-
 ##### ！9、正则表达式
+
+​	调研了一下，正则表达式的面试题绝大多数都是以实际的题目,网上的相关学习教程也有很多，这里就不再赘述，仅仅以一片相关面试题为引，作为参考，地址：[正则表达式学习笔记](https://www.jianshu.com/p/42a5e07063be)
 
 ##### ！10、int和Integer的区别，什么是自动装箱和自动拆箱
 
@@ -164,8 +159,10 @@ https://blog.csdn.net/fenglibing/article/details/8905007
 - [InputStreamReader和OutputStreamWriter的用法](https://blog.csdn.net/zmx729618/article/details/51425955)
 - [Java中switch都可以支持哪些数据类型](https://blog.csdn.net/qq_33811662/article/details/79069805)
 - [Java序列化与反序列化](https://blog.csdn.net/wangloveall/article/details/7992448)
+- [从一道面试题彻底搞懂hashCode与equals的作用与区别及应当注意的细节](https://blog.csdn.net/haobaworenle/article/details/53819838)
+- [Java中hashCode的作用](https://blog.csdn.net/fenglibing/article/details/8905007)
 
 
->Contributes: Leo, zhangyue
+>Contributes: Leo, zhangyue, 木
 >
 >Reviewers : Hollis, Kevin Lee
