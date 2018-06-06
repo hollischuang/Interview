@@ -97,10 +97,68 @@ b) [维基百科:MVC](https://zh.wikipedia.org/wiki/MVC)
 ---  
 
 
-#### ！3、Struts中请求的实现过程
+#### ！3、Struts中请求的实现过程  
+##### <回答> 
+**3.1) 从Struts2框架的角度描述工作流程**  
+* 1. 发出请求：
+```bash  
+用户发出一个HttpServletRequest请求
+```  
+* 2. 过滤请求：
+经过一系列过滤器过滤
+
+3. 调用FilterDispatcher：
+   FilterDispatcher是控制器的核心，
+   通过询问ActionMapper来确定请求是否需要调用某个Action，
+   如果需要就将请求转交给ActionProxy
+
+4. ActionProxy找到Action类：
+   通过配置管理器Configuration Manager询问框架配置文件struts.xml，
+   找到要调用的Action类
+
+5. ActionInvocation加载拦截器：
+   ActionProxy创建一个ActionInvocation实例，
+   该实例使用命名模式来调用，
+   在Action执行的前后，
+   ActionInvocation实例根据配置文件加载与Action相关的所有拦截器Interceptor
+
+6. 返回结果：
+   一旦Action执行完毕，
+   ActionInvocation实例根据strtus.xml文件中的配置找到相对应的返回结果，
+   返回结果通常是一个JSP或FreeMarker模板
+
+7. 返回响应：
+   最后，HttpServletResponse通过web.xml中配置的过滤器返回
+```  
+
+* 3.2) MVC角度描述Struts2工作流程：  
+```bash  
+1. 浏览器发出请求  
+2. 控制层中的核心控制器FilterDispatcher根据请求调用相应的Action  
+3. Struts2的拦截器链自动对请求调用一些通用的控制逻辑，如数据校验，数据封装和文件上传等  
+4. 回调Action中的excute()方法并在方法体内调用业务逻辑组件，即自定义的Javabean来处理请求，如数据查询等  
+5. execute()方法返回后会产生一个输出  
+6. 该输出经过浏览器拦截链自动处理，和开始的拦截器链处理顺序相反  
+7. 控制层最后将数据返还并更新视图层    
+```  
+
+<br/>  
+
+##### <参考来源>：  
+a) [《Java Web整合开发实战——基于Struts 2+Hibernate+Spring》（作者：贾蓓 镇明敏 杜磊 等）](http://www.tup.tsinghua.edu.cn/booksCenter/book_04983901.html)  
+
+<br/>  
+
 
 
 #### %4、Spring mvc与Struts mvc的区别
+| Name | Academy | score | 
+| - | :-: | -: | 
+| Harry Potter | Gryffindor| 90 | 
+| Hermione Granger | Gryffindor | 100 | 
+| Draco Malfoy | Slytherin | 90 |
+
+
 
 
 #### ？5、Service嵌套事务处理，如何回滚
