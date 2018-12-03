@@ -18,7 +18,7 @@
 
 4) 官方题解样例md文件下载地址  
 
-[https://github.com/hollischuang/Interview/algorithm/instruction/sample.md](https://github.com/hollischuang/Interview/algorithm/instruction/sample.md)  
+[https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md)  
 
 <br>  
 

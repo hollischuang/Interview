@@ -1,3 +1,4 @@
+
 [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/description/)  
 ---
 
@@ -43,13 +44,15 @@ public boolean hasCycle(ListNode head) {
 
 **复杂度分析**  
 
-时间复杂度：O(n)O(n)， 对于含有 nn 个元素的链表，我们访问每个元素最多一次。添加一个结点到哈希表中只需要花费 O(1)O(1) 的时间。  
+时间复杂度：
+O(n)， 对于含有 n个元素的链表，我们访问每个元素最多一次。  添加一个结点到哈希表中只需要花费 O(1) 的时间。  
 
-空间复杂度：O(n)O(n)， 空间取决于添加到哈希表中的元素数目，最多可以添加 nn 个元素。   
+空间复杂度：
+O(n)， 空间取决于添加到哈希表中的元素数目，最多可以添加 n 个元素。   
 
 ---
 
-####参考资料  
+###参考资料  
 
 * 本题leetCode官方题解：  
 [https://leetcode-cn.com/articles/linked-list-cycle/](https://leetcode-cn.com/articles/linked-list-cycle/)  
