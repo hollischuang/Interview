@@ -21,7 +21,7 @@
 
 2) 可以参照leetCode的官方题解完善内容，能详尽最好，不做强制要求，样例下载地址如下  
 
-[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md)  
+[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/instruction/sample.md)  
 
 <br>  
 

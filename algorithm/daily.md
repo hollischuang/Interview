@@ -155,6 +155,22 @@
 
 2018年12月06日  
 
+*703. 数据流中的第K大元素*  
+
+<a href="https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/" target="_blank" style="cursor:pointer;">https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/</a>  
+
+无官方题解，网友高票Java答案：  
+
+<a href="https://leetcode.com/problems/kth-largest-element-in-a-stream/discuss/149050/Java-Priority-Queue" target="_blank" style="cursor:pointer;">https://leetcode.com/problems/kth-largest-element-in-a-stream/discuss/149050/Java-Priority-Queue</a>  
+
+知识点：优先队列  
+
+难度：简单  
+
+---
+
+2018年12月07日  
+
 *692. 前K个高频单词*  
 
 <a href="https://leetcode-cn.com/problems/top-k-frequent-words/" target="_blank" style="cursor:pointer;">https://leetcode-cn.com/problems/top-k-frequent-words/</a>  
@@ -166,5 +182,21 @@
 知识点：优先队列  
 
 难度：中等  
+
+---
+
+2018年12月08日  
+
+*242. 有效的字母异位词*  
+
+<a href="https://leetcode-cn.com/problems/valid-anagram/" target="_blank" style="cursor:pointer;">https://leetcode-cn.com/problems/valid-anagram/</a>  
+
+官方题解(本题只有英文官方题解)：  
+
+<a href="https://leetcode.com/articles/valid-anagram/" target="_blank" style="cursor:pointer;">https://leetcode.com/articles/valid-anagram/</a>  
+
+知识点：哈希表和集合  
+
+难度：简单  
 
 ---
