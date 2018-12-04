@@ -6,19 +6,19 @@
 
 <br>
 
-**1. 为运行成功的代码加上详细注释和复杂度分析**   
+**1. 为运行成功的代码加上详细注释和复杂度说明**   
 
 提交的题目答案至少包括加注释的代码和复杂度分析两部分：  
 
 1) 确保代码在leetCode上可以成功提交，为代码加上详细注释  
 
-2) 代码的复杂度分析，包括时间复杂度和空间复杂度  
+2) 代码的复杂度说明，包括时间复杂度和空间复杂度  
 
 其他说明：  
 
 1) 如果提交的答案是借鉴、转载、翻译，请确保没有版权问题并注明引用出处  
 
-2) 可以参照leetCode对题目的官方题解完善内容，仅供参考，下载地址  
+2) 可以参照leetCode的官方题解完善内容，能详尽最好，不做强制要求，样例下载地址如下  
 
 [https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md)  
 

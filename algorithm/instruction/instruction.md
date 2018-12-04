@@ -18,7 +18,7 @@
 
 1) 如果提交的答案是借鉴、转载、翻译，请确保没有版权问题并注明引用出处  
 
-2) 可以参照leetCode对题目的官方题解完善内容，仅供参考，下载地址  
+2) 可以参照leetCode的官方题解完善内容，能详尽最好，不做强制要求，样例下载地址如下  
 
 [https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md)  
 
