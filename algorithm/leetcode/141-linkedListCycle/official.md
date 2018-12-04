@@ -1,6 +1,6 @@
 **141. 环形链表**  
 ---
-[https://leetcode-cn.com/problems/linked-list-cycle/description/](https://leetcode-cn.com/problems/linked-list-cycle/description/)  
+[https://leetcode-cn.com/problems/linked-list-cycle/](https://leetcode-cn.com/problems/linked-list-cycle/)  
 
 方法一：哈希表
 思路

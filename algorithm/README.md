@@ -1,4 +1,3 @@
-
 提交答案步骤  
 ---
 
@@ -22,16 +21,24 @@
 
 2) 可以参照leetCode的官方题解完善内容，能详尽最好，不做强制要求，样例下载地址如下  
 
-[https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md)  
+[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/instruction/sample.md)  
 
 <br>  
 
 **2. 找到题目所在目录，新建md文件并提交，命名规则 "英文或拼音昵称.md"**  
 
-1) 在Interview/algorithm文件夹下找到题目文件夹，如  
+1) 在Interview/leetcode/algorithm文件夹下找到题目文件夹，如  
 
 ```  
-Interview/algorithm/linkedListCycle
+Interview/leetcode/algorithm/141-LinkedListCycle
+```  
+
+如果项目里还没有该题的文件夹，请按照驼峰式命名法新建"题号-题目名称.md"，题号小于百位数请加0  
+
+```  
+比如题号是24的swap-nodes-in-pairs，命名后如下
+
+Interview/leetcode/algorithm/024-SwapNodesInPairs
 ```  
 
 2) 文件名请务必使用英文或拼音：  
@@ -43,7 +50,13 @@ Interview/algorithm/linkedListCycle
 3) 建好后完整路径和名称如下所示：  
 
 ```  
-Interview/algorithm/linkedListCycle/offical.md  
+Interview/leetcode/algorithm/141-LinkedListCycle/offical.md  
 ```  
   
 3) 在git上提交你的文件，管理员审核通过后大家就能看到你的答案并和你讨论了  
+
+---
+
+**参考资料**  
+
+[覃超《算法面试通关40讲》课件](https://github.com/geektime-geekbang/algorithm-1)  
