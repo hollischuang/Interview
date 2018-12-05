@@ -5,23 +5,58 @@
 
 <br>
 
-**1. 为运行成功的代码加上详细注释和复杂度说明**   
+**1. 为运行成功的代码写出详细注释**   
 
-提交的题目答案至少包括加注释的代码和复杂度分析两部分：  
+* 可以提交一个精简版的答案，仅包括代码和详细注释
+
+![精简版答案示例](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.png)  
 
 ```  
-1) 确保代码在leetCode上可以成功提交，为代码加上详细注释  
+精简版答案包括：
 
-2) 代码的复杂度说明，包括时间复杂度和空间复杂度  
+1) 能够在leetCode上成功提交的代码  
+
+2) 代码详细注释  
+
+3) 参考或引用的链接
+
 ```  
 
-其他说明：  
+>*精简版答案示例下载地址：*  
 
-1) 不强制原创，如果提交的答案是借鉴、转载、翻译，请保证没有版权问题并注明引用出处  
+>[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md)  
 
-2) 可以参照leetCode的官方题解完善内容，能详尽最好，不做强制要求，样例下载地址如下  
+* 或者提交一个详尽版的答案，参照leetCode官方题解样式
 
-[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/instruction/sample.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/instruction/sample.md)  
+![详尽版答案示例](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.png)  
+
+```  
+详尽版答案包括：
+
+1) 能够在leetCode上成功提交的代码  
+
+2) 代码详细注释  
+
+3) 复杂度分析：包括时间复杂度和空间复杂度  
+
+4) 方法和思路概述
+
+5) 参考或引用的链接
+
+```  
+
+>*详尽版示例下载地址：*  
+
+>[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.md)  
+
+* 引用和参考：  
+
+```  
+
+不强制原创，如果提交的答案有借鉴、转载、翻译，
+
+请务必注明引用出处  
+```  
 
 <br>  
 
@@ -31,11 +66,9 @@
 
 ```  
 Interview/leetcode/algorithm/141-LinkedListCycle
-```  
 
 如果项目里还没有该题的文件夹，请按照驼峰式命名法新建"题号-题目名称.md"，题号小于百位数请加0  
 
-```  
 比如题号是24的swap-nodes-in-pairs，命名后如下
 
 Interview/leetcode/algorithm/024-SwapNodesInPairs
@@ -52,8 +85,8 @@ Interview/leetcode/algorithm/024-SwapNodesInPairs
 ```  
 Interview/leetcode/algorithm/141-LinkedListCycle/offical.md  
 ```  
-  
-3) 在git上提交你的文件，管理员审核通过后大家就能看到你的答案并和你讨论了  
+ 
+4) 在git上提交你的文件，管理员审核通过后大家就能看到你的答案并和你讨论了  
 
 ---
 
