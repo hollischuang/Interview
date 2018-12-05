@@ -22,11 +22,11 @@
 
 ```  
 
-*精简版答案示例下载地址：*  
+>*精简版答案示例下载地址：*  
 
-[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md)  
+>[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md)  
 
-* 或者提交一个详尽版的答案，参照leetCode官方题解的样式
+* 或者提交一个详尽版的答案，参照leetCode官方题解样式
 
 ![详尽版答案示例](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.png)  
 
@@ -45,9 +45,9 @@
 
 ```  
 
-*详尽版示例下载地址：*  
+>*详尽版示例下载地址：*  
 
-[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.md)  
+>[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.md)  
 
 * 引用和参考：  
 
@@ -55,7 +55,7 @@
 
 不强制原创，如果提交的答案有借鉴、转载、翻译，
 
-请务必引用出处  
+请务必注明引用出处  
 ```  
 
 <br>  
