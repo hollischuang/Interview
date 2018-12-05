@@ -9,7 +9,7 @@
 
 * 可以提交一个精简版的答案，仅包括代码和详细注释
 
-![https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.png](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.png)  
+![精简版答案示例](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.png)  
 
 ```  
 精简版答案包括：
@@ -56,7 +56,6 @@
 请务必引用出处  
 ```  
 
-
 <br>  
 
 **2. 找到题目所在目录，新建md文件并提交，命名规则 "英文或拼音昵称.md"**  
@@ -65,11 +64,9 @@
 
 ```  
 Interview/leetcode/algorithm/141-LinkedListCycle
-```  
 
 如果项目里还没有该题的文件夹，请按照驼峰式命名法新建"题号-题目名称.md"，题号小于百位数请加0  
 
-```  
 比如题号是24的swap-nodes-in-pairs，命名后如下
 
 Interview/leetcode/algorithm/024-SwapNodesInPairs
@@ -86,8 +83,8 @@ Interview/leetcode/algorithm/024-SwapNodesInPairs
 ```  
 Interview/leetcode/algorithm/141-LinkedListCycle/offical.md  
 ```  
-  
-3) 在git上提交你的文件，管理员审核通过后大家就能看到你的答案并和你讨论了  
+ 
+4) 在git上提交你的文件，管理员审核通过后大家就能看到你的答案并和你讨论了  
 
 ---
 
