@@ -28,6 +28,8 @@
 
 * 或者提交一个详尽版的答案，参照leetCode官方题解的样式
 
+![详尽版答案示例](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.png)  
+
 ```  
 详尽版答案包括：
 
