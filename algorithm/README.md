@@ -5,11 +5,23 @@
 
 <br>
 
-**1. 为运行成功的代码写出详细注释**   
+**0. 从题目列表或者leetCode题库选择题目**  
+
+1) 从本项目的题目列表中选择，每日更新，来自leetCode免费公开题库  
+
+[https://github.com/hollischuang/Interview/blob/master/algorithm/daily.md](https://github.com/hollischuang/Interview/blob/master/algorithm/daily.md)  
+
+2) 或者直接从leetCode免费题库中自行选择  
+
+[https://leetcode-cn.com/problemset/all/](https://leetcode-cn.com/problemset/all/)  
+
+<br>  
+
+**1. 为运行成功的代码写出详细注释**  
 
 * 可以提交一个精简版的答案，仅包括代码和详细注释
 
-![精简版答案示例](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.png)  
+![精简版答案示例](https://raw.githubusercontent.com/hollischuang/Interview/master/algorithm/leetcode/sample/concise.png)  
 
 ```  
 精简版答案包括：
@@ -28,7 +40,7 @@
 
 * 或者提交一个详尽版的答案，参照leetCode官方题解样式
 
-![详尽版答案示例](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/full.png)  
+![详尽版答案示例](https://raw.githubusercontent.com/hollischuang/Interview/master/algorithm/leetcode/sample/full.png)  
 
 ```  
 详尽版答案包括：
@@ -92,4 +104,6 @@ Interview/leetcode/algorithm/141-LinkedListCycle/offical.md
 
 **参考资料**  
 
-[覃超《算法面试通关40讲》课件](https://github.com/geektime-geekbang/algorithm-1)  
+1) [leetCode中文题库](https://leetcode-cn.com/problemset/all/)  
+
+2) [覃超《算法面试通关40讲》课件](https://github.com/geektime-geekbang/algorithm-1)  
