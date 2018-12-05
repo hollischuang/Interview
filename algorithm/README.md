@@ -76,16 +76,16 @@
 
 **2. 找到题目所在目录，新建md文件并提交，命名规则 "英文或拼音昵称.md"**  
 
-1) 在Interview/leetcode/algorithm文件夹下找到题目文件夹，如  
+1) 在/Interview/algorithm/leetcode/文件夹下找到题目文件夹，如  
 
 ```  
-Interview/leetcode/algorithm/141-LinkedListCycle
+/Interview/algorithm/leetcode/141-LinkedListCycle
 
 如果项目里还没有该题的文件夹，请按照驼峰式命名法新建"题号-题目名称.md"，题号小于百位数请加0  
 
 比如题号是24的swap-nodes-in-pairs，命名后如下
 
-Interview/leetcode/algorithm/024-SwapNodesInPairs
+/Interview/algorithm/leetcode/024-SwapNodesInPairs
 ```  
 
 2) 文件名请务必使用英文或拼音：  
@@ -97,7 +97,7 @@ Interview/leetcode/algorithm/024-SwapNodesInPairs
 3) 建好后完整路径和名称如下所示：  
 
 ```  
-Interview/leetcode/algorithm/141-LinkedListCycle/offical.md  
+/Interview/algorithm/leetcode/141-LinkedListCycle/offical.md  
 ```  
  
 4) 在git上提交你的文件，管理员审核通过后大家就能看到你的答案并和你讨论了  
