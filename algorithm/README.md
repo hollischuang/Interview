@@ -21,8 +21,6 @@
 
 * 可以提交一个精简版的答案，仅包括代码和详细注释
 
-![精简版答案示例](https://raw.githubusercontent.com/hollischuang/Interview/master/algorithm/leetcode/sample/concise.png)  
-
 ```  
 精简版答案包括：
 
@@ -34,13 +32,15 @@
 
 ```  
 
+![精简版答案示例](https://raw.githubusercontent.com/hollischuang/Interview/master/algorithm/leetcode/sample/concise.png)  
+
 >*精简版答案示例下载地址：*  
 
 >[https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md](https://github.com/hollischuang/Interview/blob/master/algorithm/leetcode/sample/concise.md)  
 
-* 或者提交一个详尽版的答案，参照leetCode官方题解样式
+<br>  
 
-![详尽版答案示例](https://raw.githubusercontent.com/hollischuang/Interview/master/algorithm/leetcode/sample/full.png)  
+* 或者提交一个详尽版的答案，参照leetCode官方题解样式
 
 ```  
 详尽版答案包括：
@@ -56,6 +56,8 @@
 5) 参考或引用的链接
 
 ```  
+
+![详尽版答案示例](https://raw.githubusercontent.com/hollischuang/Interview/master/algorithm/leetcode/sample/full.png)  
 
 >*详尽版示例下载地址：*  
 
