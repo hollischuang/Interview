@@ -81,8 +81,8 @@ class Solution {
 **复杂度分析**：  
 设M是字符串S的长度，N是字符串T的长度    
 空间复杂度：O(1)  
-时间复杂度：O(M+N)
-  
+时间复杂度：O(M+N)  
+**注意：本题的解法都没考虑字符串为null的情况，因为题目限定了字符串长度大于等于1，如果没有限定条件，还要考虑字符串为null的情况***
 **参考资料**  
 - 本题leetCode官方题解  
   [https://leetcode.com/problems/backspace-string-compare/solution/](https://leetcode.com/problems/backspace-string-compare/solution/)
