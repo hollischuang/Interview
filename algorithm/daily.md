@@ -12,9 +12,9 @@
 2018年11月27日  
 
 <a href="https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/206-reverseLinkedList" target="_blank" style="cursor:pointer;">206. 反转链表</a>  
-  
+
 <a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" style="cursor:pointer;">https://leetcode-cn.com/problems/reverse-linked-list/</a>  
-  
+
 官方题解(本题只有英文官方题解)：  
   
 <a href="https://leetcode.com/articles/reverse-linked-list/" target="_blank" style="cursor:pointer;">https://leetcode.com/articles/reverse-linked-list/</a>  
@@ -28,18 +28,15 @@
 2018年11月28日  
 
 <a href="https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/024-swapNodesInPairs" target="_blank" style="cursor:pointer;">
-24. 两两交换链表中的节点
-</a>  
-<br>
+24. 两两交换链表中的节点</a>  
+
 <a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/" target="_blank" style="cursor:pointer;">
-https://leetcode-cn.com/problems/swap-nodes-in-pairs/
-</a>  
+https://leetcode-cn.com/problems/swap-nodes-in-pairs/</a>  
 
 无官方题解，网友最高票Java答案：  
 
 <a href="https://leetcode.com/problems/swap-nodes-in-pairs/discuss/11030/My-accepted-java-code.-used-recursion." target="_blank" style="cursor:pointer;">
-https://leetcode.com/problems/swap-nodes-in-pairs/discuss/11030/My-accepted-java-code.-used-recursion.
-</a>  
+https://leetcode.com/problems/swap-nodes-in-pairs/discuss/11030/My-accepted-java-code.-used-recursion.</a>  
 
 知识点：数组、链表  
 
