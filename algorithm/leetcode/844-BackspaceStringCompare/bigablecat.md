@@ -54,10 +54,11 @@
 时间复杂度: O(M + N)，M和N分别是字符串S和T的长度，遍历两个字符串的所有字符需要M+N次迭代  
 
 空间复杂度: O(1)，没有使用额外的辅助空间，空间复杂度为O(1)  
+
 ---
 
 
 **参考资料**  
 
 * 本题leetCode英文官方题解：  
-[https://leetcode.com/articles/backspace-string-compare/)  
+[https://leetcode.com/articles/backspace-string-compare/](https://leetcode.com/articles/backspace-string-compare/)  
