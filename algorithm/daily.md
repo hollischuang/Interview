@@ -27,16 +27,13 @@
 
 2018年11月28日  
 
-<a href="https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/024-swapNodesInPairs" target="_blank" style="cursor:pointer;">
-24. 两两交换链表中的节点</a>  
+<a href="https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/024-swapNodesInPairs" target="_blank" style="cursor:pointer;">24. 两两交换链表中的节点</a>  
 
-<a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/" target="_blank" style="cursor:pointer;">
-https://leetcode-cn.com/problems/swap-nodes-in-pairs/</a>  
+<a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/" target="_blank" style="cursor:pointer;">https://leetcode-cn.com/problems/swap-nodes-in-pairs/</a>  
 
 无官方题解，网友最高票Java答案：  
 
-<a href="https://leetcode.com/problems/swap-nodes-in-pairs/discuss/11030/My-accepted-java-code.-used-recursion." target="_blank" style="cursor:pointer;">
-https://leetcode.com/problems/swap-nodes-in-pairs/discuss/11030/My-accepted-java-code.-used-recursion.</a>  
+<a href="https://leetcode.com/problems/swap-nodes-in-pairs/discuss/11030/My-accepted-java-code.-used-recursion." target="_blank" style="cursor:pointer;">https://leetcode.com/problems/swap-nodes-in-pairs/discuss/11030/My-accepted-java-code.-used-recursion.</a>  
 
 知识点：数组、链表  
 
