@@ -323,7 +323,7 @@
 
 2018年12月16日  
 
-[53. 最大子序和](53. 最大子序和)  
+[53. 最大子序和](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/053-maximumSubarray)  
 
 [https://leetcode-cn.com/problems/maximum-subarray/](https://leetcode-cn.com/problems/maximum-subarray/)  
 
@@ -338,5 +338,181 @@
 知识点：递归、分治、动态规划  
 
 难度：简单  
+
+---
+
+2018年12月17日  
+
+[860. 柠檬水找零](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/860-lemonadeChange)  
+
+[https://leetcode-cn.com/problems/lemonade-change/](https://leetcode-cn.com/problems/lemonade-change/)  
+
+官方题解：  
+
+[https://leetcode-cn.com/articles/lemonade-change/](https://leetcode-cn.com/articles/lemonade-change/)  
+
+知识点：贪心算法  
+
+难度：简单  
+
+---
+
+2018年12月18日  
+
+[122. 买卖股票的最佳时机 II](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/122-bestTimeToBuyAndSellStockII)  
+
+[https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/)  
+
+官方题解：  
+
+[https://leetcode-cn.com/articles/best-time-to-buy-and-sell-stock-ii/](https://leetcode-cn.com/articles/best-time-to-buy-and-sell-stock-ii/)  
+
+知识点：贪心算法  
+
+难度：简单  
+
+---
+
+2018年12月19日  
+
+[455. 分发饼干](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/455-AssignCookies)  
+
+[https://leetcode-cn.com/problems/assign-cookies/](https://leetcode-cn.com/problems/assign-cookies/)  
+
+无官方题解，网友高票Java答案1：  
+
+[https://leetcode.com/problems/assign-cookies/discuss/93987/Simple-Greedy-Java-Solution](https://leetcode.com/problems/assign-cookies/discuss/93987/Simple-Greedy-Java-Solution)  
+
+无官方题解，网友高票Java答案2：  
+
+[https://leetcode.com/problems/assign-cookies/discuss/93997/Array-sort-%2B-Two-pointer-greedy-solution-O(nlogn)](https://leetcode.com/problems/assign-cookies/discuss/93997/Array-sort-%2B-Two-pointer-greedy-solution-O(nlogn))  
+
+知识点：贪心算法  
+
+难度：简单  
+
+---
+
+2018年12月20日  
+
+[874. 模拟行走机器人](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/874-walkingRobotSimulation)  
+
+[https://leetcode-cn.com/problems/walking-robot-simulation/](https://leetcode-cn.com/problems/walking-robot-simulation/)  
+
+官方题解(本题只有英文官方题解)：  
+
+[https://leetcode.com/problems/walking-robot-simulation/solution/](https://leetcode.com/problems/walking-robot-simulation/solution/)  
+
+知识点：贪心算法  
+
+难度：简单  
+
+---
+
+2018年12月21日  
+
+[874. 模拟行走机器人](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/874-walkingRobotSimulation)  
+
+[https://leetcode-cn.com/problems/walking-robot-simulation/](https://leetcode-cn.com/problems/walking-robot-simulation/)  
+
+官方题解(本题只有英文官方题解)：  
+
+[https://leetcode.com/problems/walking-robot-simulation/solution/](https://leetcode.com/problems/walking-robot-simulation/solution/)  
+
+知识点：贪心算法  
+
+难度：简单  
+
+---
+
+2018年12月22日  
+
+[102. 二叉树的层次遍历](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/102-BinaryTreeLevelOrderTraversal)  
+
+[https://leetcode-cn.com/problems/binary-tree-level-order-traversal/](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)  
+
+无官方题解，网友高票Java答案1：  
+
+[https://leetcode.com/problems/binary-tree-level-order-traversal/discuss/33450/Java-solution-with-a-queue-used](https://leetcode.com/problems/binary-tree-level-order-traversal/discuss/33450/Java-solution-with-a-queue-used)  
+
+无官方题解，网友高票Java答案2：  
+
+[https://leetcode.com/problems/binary-tree-level-order-traversal/discuss/33445/Java-Solution-using-DFS](https://leetcode.com/problems/binary-tree-level-order-traversal/discuss/33445/Java-Solution-using-DFS)  
+
+知识点：广度优先搜索  
+
+难度：中等  
+
+---
+
+2018年12月23日  
+
+[104. 二叉树的最大深度](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/104-MaximumDepthOfBinaryTree)  
+
+[https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)  
+
+官方题解：  
+
+[https://leetcode-cn.com/articles/maximum-depth-of-binary-tree/](https://leetcode-cn.com/articles/maximum-depth-of-binary-tree/)  
+
+知识点：深度优先搜索  
+
+难度：简单  
+
+---
+
+2018年12月24日  
+
+[51. N-皇后](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/51-NQueens)  
+
+[https://leetcode-cn.com/problems/n-queens/](https://leetcode-cn.com/problems/n-queens/)  
+
+无官方题解，网友高票Java答案1：  
+
+[https://leetcode.com/problems/n-queens/discuss/19805/My-easy-understanding-Java-Solution](https://leetcode.com/problems/n-queens/discuss/19805/My-easy-understanding-Java-Solution)  
+
+无官方题解，网友高票Java答案2：  
+
+[https://leetcode.com/problems/n-queens/discuss/19808/Accepted-4ms-c%2B%2B-solution-use-backtracking-and-bitmask-easy-understand.](https://leetcode.com/problems/n-queens/discuss/19808/Accepted-4ms-c%2B%2B-solution-use-backtracking-and-bitmask-easy-understand.)  
+
+知识点：剪枝  
+
+难度：困难  
+
+---
+
+2018年12月25日  
+
+[36. 有效的数独](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/36-Valid Sudoku)  
+
+[https://leetcode-cn.com/problems/valid-sudoku/](https://leetcode-cn.com/problems/valid-sudoku/)  
+
+无官方题解，网友高票Java答案1：  
+
+[https://leetcode.com/problems/valid-sudoku/discuss/15472/Short%2BSimple-Java-using-Strings](https://leetcode.com/problems/valid-sudoku/discuss/15472/Short%2BSimple-Java-using-Strings)  
+
+无官方题解，网友高票Java答案2：  
+
+[https://leetcode.com/problems/valid-sudoku/discuss/15450/Shared-my-concise-Java-code](https://leetcode.com/problems/valid-sudoku/discuss/15450/Shared-my-concise-Java-code)  
+
+知识点：剪枝  
+
+难度：中等  
+
+---
+
+2018年12月26日  
+
+[37. 解数独](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/37-Sudoku Solver)  
+
+[https://leetcode-cn.com/problems/sudoku-solver/](https://leetcode-cn.com/problems/sudoku-solver/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/sudoku-solver/discuss/15752/Straight-Forward-Java-Solution-Using-Backtracking](https://leetcode.com/problems/sudoku-solver/discuss/15752/Straight-Forward-Java-Solution-Using-Backtracking)  
+
+知识点：剪枝  
+
+难度：困难  
 
 ---
