@@ -12,7 +12,7 @@
      * @param T
      * @return
      */
-    public static boolean backspaceCompare(String S, String T) {
+    public boolean backspaceCompare(String S, String T) {
         //i和j是循环次数上界
         int i = S.length() - 1, j = T.length() - 1;
         //skipS和skipT是计数器，统计循环时跳过的字符个数
