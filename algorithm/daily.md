@@ -361,7 +361,7 @@
 
 [122. 买卖股票的最佳时机 II](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/122-bestTimeToBuyAndSellStockII)  
 
-[https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/)  
+[https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)  
 
 官方题解：  
 
@@ -411,22 +411,6 @@
 
 2018年12月21日  
 
-[874. 模拟行走机器人](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/874-walkingRobotSimulation)  
-
-[https://leetcode-cn.com/problems/walking-robot-simulation/](https://leetcode-cn.com/problems/walking-robot-simulation/)  
-
-官方题解(本题只有英文官方题解)：  
-
-[https://leetcode.com/problems/walking-robot-simulation/solution/](https://leetcode.com/problems/walking-robot-simulation/solution/)  
-
-知识点：贪心算法  
-
-难度：简单  
-
----
-
-2018年12月22日  
-
 [102. 二叉树的层次遍历](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/102-BinaryTreeLevelOrderTraversal)  
 
 [https://leetcode-cn.com/problems/binary-tree-level-order-traversal/](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)  
@@ -445,7 +429,7 @@
 
 ---
 
-2018年12月23日  
+2018年12月22日  
 
 [104. 二叉树的最大深度](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/104-MaximumDepthOfBinaryTree)  
 
@@ -461,9 +445,9 @@
 
 ---
 
-2018年12月24日  
+2018年12月23日  
 
-[51. N-皇后](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/51-NQueens)  
+[51. N-皇后](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/051-NQueens)  
 
 [https://leetcode-cn.com/problems/n-queens/](https://leetcode-cn.com/problems/n-queens/)  
 
@@ -481,9 +465,9 @@
 
 ---
 
-2018年12月25日  
+2018年12月24日  
 
-[36. 有效的数独](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/36-Valid Sudoku)  
+[36. 有效的数独](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/036-ValidSudoku)  
 
 [https://leetcode-cn.com/problems/valid-sudoku/](https://leetcode-cn.com/problems/valid-sudoku/)  
 
@@ -501,9 +485,9 @@
 
 ---
 
-2018年12月26日  
+2018年12月25日  
 
-[37. 解数独](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/37-Sudoku Solver)  
+[37. 解数独](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/037-SudokuSolver)  
 
 [https://leetcode-cn.com/problems/sudoku-solver/](https://leetcode-cn.com/problems/sudoku-solver/)  
 
@@ -515,4 +499,37 @@
 
 难度：困难  
 
----
+---  
+
+2018年12月26日  
+
+[69. x 的平方根](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/069-SqrtX)  
+
+[https://leetcode-cn.com/problems/sqrtx/](https://leetcode-cn.com/problems/sqrtx/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/sqrtx/discuss/25047/A-Binary-Search-Solution](https://leetcode.com/problems/sqrtx/discuss/25047/A-Binary-Search-Solution)  
+
+知识点：二分查找  
+
+难度：简单  
+
+---  
+
+2018年12月27日  
+
+[367. 有效的完全平方数](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/367-ValidPerfectSquare)  
+
+[https://leetcode-cn.com/problems/valid-perfect-square/](https://leetcode-cn.com/problems/valid-perfect-square/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/valid-perfect-square/discuss/83874/A-square-number-is-1%2B3%2B5%2B7%2B...-JAVA-code](https://leetcode.com/problems/valid-perfect-square/discuss/83874/A-square-number-is-1%2B3%2B5%2B7%2B...-JAVA-code)  
+
+知识点：二分查找  
+
+难度：简单  
+
+---  
+
