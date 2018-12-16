@@ -533,3 +533,35 @@
 
 ---  
 
+2018年12月28日  
+
+[208. 实现 Trie (前缀树)](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/208-implementTriePrefixTree)  
+
+[https://leetcode-cn.com/problems/implement-trie-prefix-tree/](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)  
+
+官方题解(本题只有英文官方题解)：  
+
+[https://leetcode.com/articles/implement-trie-prefix-tree/](https://leetcode.com/articles/implement-trie-prefix-tree/)  
+
+知识点：字典树  
+
+难度：中等  
+
+---  
+
+2018年12月29日  
+
+[212. 单词搜索 II](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/212-wordSearchII)  
+
+[https://leetcode-cn.com/problems/word-search-ii/](https://leetcode-cn.com/problems/word-search-ii/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/word-search-ii/discuss/59780/Java-15ms-Easiest-Solution-(100.00)](https://leetcode.com/problems/word-search-ii/discuss/59780/Java-15ms-Easiest-Solution-(100.00))  
+
+知识点：字典树  
+
+难度：困难  
+
+---  
+
