@@ -46,7 +46,8 @@ O(mlogm + nlogn + m + n) = O(nlogn)
 Arrays.sort排序方法的空间复杂度是O(nlogn)，
 使用了两次，所以空间复杂度是O(2nlogn) = O(nlogn)，
 其他代码只使用了常数的空间，可以忽略，
-所以最终的空间复杂度是O(nlogn)
+所以最终的空间复杂度是O(nlogn)  
+
 ---
 
 **参考资料**  
