@@ -43,8 +43,8 @@ m+n，
 最终的时间复杂度是
 O(mlogm + nlogn + m + n) = O(nlogn)
 
-空间复杂度：O(nlogn)，
-Arrays.sort排序方法的空间复杂度是O(nlogn)，
+空间复杂度：O(n)，
+Arrays.sort排序方法的空间复杂度是O(n)，
 使用了两次，所以空间复杂度是O(2n)，
 最终的空间复杂度是O(n)  
 
