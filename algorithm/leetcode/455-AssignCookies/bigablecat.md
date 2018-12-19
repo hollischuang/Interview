@@ -32,8 +32,9 @@
 
 时间复杂度：O(nlogn)，
 设两个数组的长度分别是 m 和 n
-Arrays.sort排序算法的时间复杂度是nlogn，
-使用了两次，所以排序的时间复杂度是
+Arrays.sort使用的DualPivotQuickSort在经典快排基础上改进，
+时间复杂度稳定为O(nlogn)，
+Arrays.sort使用了两次，所以排序的时间复杂度是
 mlogm + nlogn，
 for循环内虽然对两个数组进行操作，
 但是两个数组都没有被重复从头遍历，
@@ -42,11 +43,10 @@ m+n，
 最终的时间复杂度是
 O(mlogm + nlogn + m + n) = O(nlogn)
 
-空间复杂度：O(nlogn)，
-Arrays.sort排序方法的空间复杂度是O(nlogn)，
-使用了两次，所以空间复杂度是O(2nlogn) = O(nlogn)，
-其他代码只使用了常数的空间，可以忽略，
-所以最终的空间复杂度是O(nlogn)  
+空间复杂度：O(n)，
+Arrays.sort排序方法的空间复杂度是O(n)，
+使用了两次，所以空间复杂度是O(2n)，
+最终的空间复杂度是O(n)  
 
 ---
 
