@@ -65,7 +65,7 @@ public class Solution {
         for(int i = 0; i < board.length; i++) {
             // 从第j列开始遍历
             for(int j = 0; j < y; j++) {
-                // 如果此位置为皇后，且
+                // 如果此位置为皇后，且满足两点斜率为正负1或者同行，则存在冲突
                 if(board[i][j] == 'Q' && (x - i == y - j || x - i == j - y || x == i))
                     return false;
             }
@@ -74,7 +74,7 @@ public class Solution {
         return true;
     }
 
-    // 产生了一个结果集list序列
+    // 产生了一个结果集序列
     public List<String> construct(char[][] board) {
         List<String> result = new LinkedList<String>();
         for(int i = 0; i < board.length; i++) {
