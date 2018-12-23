@@ -1,5 +1,3 @@
->精简版答案示例，摘自本题的leetCode官方题解
-
 **051. NQueens**  
 ---
 [https://leetcode-cn.com/problems/n-queens/](https://leetcode-cn.com/problems/n-queens/)  
