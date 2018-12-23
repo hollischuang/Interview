@@ -639,7 +639,7 @@
 
 [70. 爬楼梯](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/070-ClimbingStairs)  
 
-[https://leetcode-cn.com/problems/climbing-stairs/description/](https://leetcode-cn.com/problems/climbing-stairs/description/)  
+[https://leetcode-cn.com/problems/climbing-stairs/](https://leetcode-cn.com/problems/climbing-stairs/)  
 
 官方题解(本题只有英文官方题解)：  
 
@@ -729,7 +729,7 @@
 
 2019年01月08日  
 
-[188. 买卖股票的最佳时机 IV](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/124-bestTimeToBuyAndSellStockIV)  
+[188. 买卖股票的最佳时机 IV](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/188-bestTimeToBuyAndSellStockIV)  
 
 [https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)  
 
