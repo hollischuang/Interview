@@ -6,7 +6,7 @@
 
 ```java  
 
-    public static boolean isAnagram(String s, String t) {
+    public boolean isAnagram(String s, String t) {
         if (s == null || t == null) return false;
         //如果长度不等，直接返回false
         if (s.length() != t.length()) return false;
