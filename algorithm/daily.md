@@ -783,7 +783,7 @@
 
 官方题解(只有英文)：  
 
-[https://leetcode.com/problems/longest-increasing-subsequence/solution/](https://leetcode.com/problems/longest-increasing-subsequence/solution/)  
+[https://leetcode.com/articles/longest-increasing-subsequence/](https://leetcode.com/articles/longest-increasing-subsequence/)  
 
 知识点：动态规划  
 
@@ -799,7 +799,7 @@
 
 官方题解(只有英文)：  
 
-[https://leetcode.com/problems/coin-change/solution/](https://leetcode.com/problems/coin-change/solution/)  
+[https://leetcode.com/articles/coin-change/](https://leetcode.com/articles/coin-change/)  
 
 知识点：动态规划  
 
@@ -815,10 +815,10 @@
 
 官方题解(只有英文)：  
 
-[https://leetcode.com/problems/edit-distance/solution/](https://leetcode.com/problems/edit-distance/solution/)  
+[https://leetcode.com/articles/edit-distance/](https://leetcode.com/articles/edit-distance/)  
 
 知识点：动态规划  
 
-难度：中等  
+难度：困难  
 
 ---  
