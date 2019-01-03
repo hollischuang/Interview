@@ -2,9 +2,9 @@
 ---
 [https://leetcode-cn.com/problems/climbing-stairs/](https://leetcode-cn.com/problems/climbing-stairs/)  
 
-解决该问题需要把递推式找出来。
-由于只能走一步或者两步，所以对于N级台阶，第N级台阶的方法数 = 第N-1级台阶方法数　+ 第N-2级台阶方法数。
-令F(n)表示n级台阶的方法数则有：
+首先判断该问题是否为dp问题。  
+对于台阶问题，由于只能走一步或者两步，所以对于N级台阶，很明显得到，第N级台阶的方法数 = 第N-1级台阶方法数　+ 第N-2级台阶方法数。即第N级的“最优决策”只与N-1的“最优决策”和N-2的“最优决策”有关，即满足最优子结构和无后效性，而本身问题是有界的，因此该问题为dp问题。  
+令F(n)表示n级台阶的方法数，则有：
 * F(n) = F(n-1) + F(n-2) (n>=3),
 * F(1) = 1
 * F(2) = 2
@@ -34,12 +34,11 @@ public class Solution {
 
 ```  
 
-方法二：递推式递归缓存版
+方法二：递推式的递归缓存版
 
-递归中存在重复的计算，例如:
-当n=5时，
-F(5) = F(4)+F(3)
-F(4) = F(3)+F(2)
+递归中存在重复的计算，例如:当n=5时，
+* F(5) = F(4)+F(3)
+* F(4) = F(3)+F(2)
 此时，F(3)重复计算了一次，因此可以在这个地方添加缓存保存中间值。
 
 ```java  
@@ -72,8 +71,10 @@ public class Solution {
 
 ```  
 
-方法三：递推式非递归版本
-因为F(n) = F(n-1) + F(n-2) (n>=3)。因此，该式子的计算过程是可以用数组表示的，数组的位置为n的值是位置为n-1的值与位置n-2的值之和。所以算法思路为：顺序遍历数组，取数组当前位置的前两个位置的值相加赋值给当前位置。
+方法三：递推式非递归版本  
+因为F(n) = F(n-1) + F(n-2) (n>=3)。  
+所以，该式子的计算过程是可以用数组表示的，数组的位置为n的值是位置为n-1的值与位置n-2的值之和。  
+所以算法思路为：顺序遍历数组，取数组当前位置的前两个位置的值相加赋值给当前位置。
 
 ```java  
 
@@ -102,12 +103,11 @@ public class Solution {
 
 ```  
 
-其它的直接使用数学公式
 ---
 
 
 **参考资料**  
-* 斐波那契数列的数学公式
+* 斐波那契数列的数学公式：  
 [https://blog.csdn.net/beautyofmath/article/details/48184331](https://blog.csdn.net/beautyofmath/article/details/48184331)
 * 官方题解：  
 [https://leetcode.com/problems/n-queens/discuss/19805/My-easy-understanding-Java-Solution](https://leetcode.com/problems/n-queens/discuss/19805/My-easy-understanding-Java-Solution)  
