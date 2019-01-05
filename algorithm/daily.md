@@ -583,7 +583,7 @@
 
 ---  
 
-2019年12月31日  
+2018年12月31日  
 
 [338. 比特位计数](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/338-CountingBits)  
 
@@ -599,7 +599,7 @@
 
 ---  
 
-2018年01月01日  
+2019年01月01日  
 
 [231. 2的幂](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/231-PowerOfTwo)  
 
