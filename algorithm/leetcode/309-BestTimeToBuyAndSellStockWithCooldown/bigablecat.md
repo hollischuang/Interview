@@ -11,13 +11,13 @@
         //prev_sell用于缓存上一次的sell值
         //buy表示只能买入或持有时所得的总利润
         //prev_buy用于缓存上一次的buy值
-        int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy;
-       
-		for (int price : prices) {
+        int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy;  
+
+        for (int price : prices) {
             // buy的值来自上一次循环结果，将其赋值给prev_buy
             prev_buy = buy;
-            
-			// 如果当前日期只能买入或持有，buy的值有两种情况
+
+            // 如果当前日期只能买入或持有，buy的值有两种情况
             // 第一种情况：在当前日期进行了买入操作
             // prev_sell - price
             // prev_sell 是前一次进行卖出操作时所得利润总和
@@ -28,8 +28,8 @@
             // 从二者中比较出利润较大者，赋值给变量buy
             // buy就是当前日期只能买入或持有时所得最大利润
             buy = Math.max(prev_sell - price, prev_buy);
-            
-			// 同理可得只能卖出或持有时所得利润sell的值
+
+            // 同理可得只能卖出或持有时所得利润sell的值
             prev_sell = sell;
             
 			// 不同的是对的Math.max(prev_buy + price, prev_sell)部分的解释
