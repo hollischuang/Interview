@@ -7,9 +7,13 @@
 >[《算法面试通关40讲》](https://time.geekbang.org/course/intro/130)  
 >[《算法面试通关40讲》官方课件](https://github.com/geektime-geekbang/algorithm-1)  
 
->题目来源是[leetCode](https://leetcode-cn.com/problemset/all/)  
+>所有题目来源是[leetCode](https://leetcode-cn.com/problemset/all/)  
 
 ---
+
+
+专题(Begin)：《算法面试40讲》  
+---  
 
 2018年11月27日  
 
@@ -583,7 +587,7 @@
 
 ---  
 
-2019年12月31日  
+2018年12月31日  
 
 [338. 比特位计数](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/338-CountingBits)  
 
@@ -599,7 +603,7 @@
 
 ---  
 
-2018年01月01日  
+2019年01月01日  
 
 [231. 2的幂](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/231-PowerOfTwo)  
 
@@ -820,5 +824,173 @@
 知识点：动态规划  
 
 难度：困难  
+
+---  
+
+2019年01月14日  
+
+[200. 岛屿的个数](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/200-numberOfIslands)  
+
+[https://leetcode-cn.com/problems/number-of-islands/](https://leetcode-cn.com/problems/number-of-islands/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/number-of-islands/discuss/56359/Very-concise-Java-AC-solution](https://leetcode.com/problems/number-of-islands/discuss/56359/Very-concise-Java-AC-solution)  
+
+知识点：并查集  
+
+难度：中等  
+
+---  
+
+2019年01月15日  
+
+[547. 朋友圈](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/547-friendCircles)  
+
+[https://leetcode-cn.com/problems/friend-circles/](https://leetcode-cn.com/problems/friend-circles/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/friend-circles/discuss/101338/Neat-DFS-java-solution](https://leetcode.com/problems/friend-circles/discuss/101338/Neat-DFS-java-solution)  
+
+知识点：并查集  
+
+难度：中等  
+
+---  
+
+2019年01月16日  
+
+[146. LRU缓存机制](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/146-lruCache)  
+
+[https://leetcode-cn.com/problems/lru-cache/](https://leetcode-cn.com/problems/lru-cache/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/lru-cache/discuss/45911/Java-Hashtable-%2B-Double-linked-list-(with-a-touch-of-pseudo-nodes)](https://leetcode.com/problems/lru-cache/discuss/45911/Java-Hashtable-%2B-Double-linked-list-(with-a-touch-of-pseudo-nodes))  
+
+知识点：LRU  
+
+难度：困难  
+
+---  
+
+专题(End)：《算法面试40讲》  
+---  
+
+<br>  
+
+专题(Begin)：动态规划  
+---  
+
+2019年01月17日  
+
+[303. 区域和检索 - 数组不可变](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/303-rangeSumQueryImmutable)  
+
+[https://leetcode-cn.com/problems/range-sum-query-immutable/](https://leetcode-cn.com/problems/range-sum-query-immutable/)  
+
+官方题解(只有英文)：  
+
+[https://leetcode.com/articles/range-sum-query-immutable/](https://leetcode.com/articles/range-sum-query-immutable/)  
+
+知识点：动态规划  
+
+难度：简单  
+
+---  
+
+2019年01月18日  
+
+[746. 使用最小花费爬楼梯](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/746-minCostClimbingStairs)  
+
+[https://leetcode-cn.com/problems/min-cost-climbing-stairs/](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)  
+
+官方题解(只有英文)：  
+
+[https://leetcode.com/articles/min-cost-climbing-stairs/](https://leetcode.com/articles/min-cost-climbing-stairs/)  
+
+知识点：动态规划  
+
+难度：简单  
+
+---  
+
+2019年01月19日  
+
+[198. 打家劫舍](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/198-houseRobber)  
+
+[https://leetcode-cn.com/problems/house-robber/](https://leetcode-cn.com/problems/house-robber/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.](https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.)  
+
+知识点：动态规划  
+
+难度：简单  
+
+---  
+
+2019年01月20日  
+
+[877. 石子游戏](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/877-stoneGame)  
+
+[https://leetcode-cn.com/problems/stone-game/](https://leetcode-cn.com/problems/stone-game/)  
+
+官方题解：  
+
+[https://leetcode-cn.com/articles/stone-game/](https://leetcode-cn.com/articles/stone-game/)  
+
+知识点：动态规划  
+
+难度：中等  
+
+---  
+
+2019年01月21日  
+
+[64. 最小路径和](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/064-minimumPathSum)  
+
+[https://leetcode-cn.com/problems/minimum-path-sum/](https://leetcode-cn.com/problems/minimum-path-sum/)  
+
+无官方题解，网友高票Java答案：  
+
+[https://leetcode.com/problems/minimum-path-sum/discuss/23471/My-java-solution-using-DP-and-no-extra-space](https://leetcode.com/problems/minimum-path-sum/discuss/23471/My-java-solution-using-DP-and-no-extra-space)  
+
+知识点：动态规划  
+
+难度：中等  
+
+---  
+
+2019年01月22日  
+
+[96. 不同的二叉搜索树](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/096-uniqueBinarySearchTrees)  
+
+[https://leetcode-cn.com/problems/unique-binary-search-trees/](https://leetcode-cn.com/problems/unique-binary-search-trees/)  
+
+官方题解(只有英文)：  
+
+[https://leetcode.com/articles/unique-binary-search-trees/](https://leetcode.com/articles/unique-binary-search-trees/)  
+
+知识点：动态规划  
+
+难度：中等  
+
+---  
+
+2019年01月23日  
+
+[413. 等差数列划分](https://github.com/hollischuang/Interview/tree/master/algorithm/leetcode/413-arithmeticSlices)  
+
+[https://leetcode-cn.com/problems/arithmetic-slices/](https://leetcode-cn.com/problems/arithmetic-slices/)  
+
+官方题解(只有英文)：  
+
+[https://leetcode.com/articles/arithmetic-slices/](https://leetcode.com/articles/arithmetic-slices/)  
+
+知识点：动态规划  
+
+难度：中等  
 
 ---  
