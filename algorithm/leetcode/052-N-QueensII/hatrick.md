@@ -58,5 +58,4 @@ public class NQueenII {
 
 **参考资料**  
 
-* 网友推荐题解：  
 [https://blog.csdn.net/xygy8860/article/details/46861817](https://blog.csdn.net/xygy8860/article/details/46861817)  
