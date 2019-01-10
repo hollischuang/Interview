@@ -849,9 +849,13 @@
 
 [https://leetcode-cn.com/problems/friend-circles/](https://leetcode-cn.com/problems/friend-circles/)  
 
-无官方题解，网友高票Java答案：  
+无官方题解，网友高票Java答案1(DFS)：  
 
 [https://leetcode.com/problems/friend-circles/discuss/101338/Neat-DFS-java-solution](https://leetcode.com/problems/friend-circles/discuss/101338/Neat-DFS-java-solution)  
+
+无官方题解，网友高票Java答案2(Union Find)：  
+
+[https://leetcode.com/problems/friend-circles/discuss/101336/Java-solution-Union-Find](https://leetcode.com/problems/friend-circles/discuss/101336/Java-solution-Union-Find)  
 
 知识点：并查集  
 
