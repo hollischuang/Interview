@@ -9,7 +9,7 @@
 
 ### 算法题目详细解答  
 
-- [leetCode题目答案](https://github.com/bigablecat/algorithm)
+- [leetCode题目答案](https://github.com/hollischuang/algorithm)
 
 ### 计算机基础知识
 
